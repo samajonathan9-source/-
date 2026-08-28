@@ -1,0 +1,96 @@
+{
+  "hypothesis": "H1 robuste - LoRA cible LCT vs uniforme, multi-seeds",
+  "model": "SmolLM2-135M-Instruct",
+  "n_layers": 30,
+  "steps": 100,
+  "lr": 0.001,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "total_rank_budget": 60,
+  "uniform_mean_ppl": 46.23,
+  "uniform_std_ppl": 4.34,
+  "cible_mean_ppl": 52.48,
+  "cible_std_ppl": 5.31,
+  "t_stat": -2.839,
+  "t_p": 0.04689553931761254,
+  "wilcoxon_p": 0.0625,
+  "records": [
+    {
+      "name": "uniforme",
+      "seed": 0,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 40.97
+    },
+    {
+      "name": "lct_cible",
+      "seed": 0,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 53.64
+    },
+    {
+      "name": "uniforme",
+      "seed": 1,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 43.98
+    },
+    {
+      "name": "lct_cible",
+      "seed": 1,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 52.03
+    },
+    {
+      "name": "uniforme",
+      "seed": 2,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 53.65
+    },
+    {
+      "name": "lct_cible",
+      "seed": 2,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 61.61
+    },
+    {
+      "name": "uniforme",
+      "seed": 3,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 44.52
+    },
+    {
+      "name": "lct_cible",
+      "seed": 3,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 45.63
+    },
+    {
+      "name": "uniforme",
+      "seed": 4,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 48.04
+    },
+    {
+      "name": "lct_cible",
+      "seed": 4,
+      "params": 115200,
+      "ppl_before": 400.91,
+      "ppl_after": 49.49
+    }
+  ],
+  "verdict_h1_robust": "ECHEC",
+  "sha256_proof": "6ccee0502a1628a5f59412c398056106e1b676eae701b5659547b4cdd5561973"
+}

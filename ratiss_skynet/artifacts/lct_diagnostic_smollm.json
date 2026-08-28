@@ -1,0 +1,318 @@
+{
+  "generator": "SmolLM2-135M-Instruct local (repo, gudhi)",
+  "model_dir": "/workspace/project/models/SmolLM2-135M-Instruct",
+  "n_layers": 30,
+  "hidden_size": 576,
+  "n_prompts": 16,
+  "n_boot": 6,
+  "max_neurons": 96,
+  "max_tokens": 120,
+  "rows": [
+    {
+      "layer": 0,
+      "psig": 8.9167,
+      "psig_mean": 8.8349,
+      "psig_std": 0.8375,
+      "edge": 0.9968,
+      "entropy": -0.006,
+      "H1": 74,
+      "n_tokens": 226
+    },
+    {
+      "layer": 1,
+      "psig": 7.262,
+      "psig_mean": 4.2819,
+      "psig_std": 1.208,
+      "edge": 1.0019,
+      "entropy": -0.0111,
+      "H1": 62,
+      "n_tokens": 226
+    },
+    {
+      "layer": 2,
+      "psig": 3.333,
+      "psig_mean": 4.5408,
+      "psig_std": 0.7901,
+      "edge": 1.0028,
+      "entropy": -0.0336,
+      "H1": 31,
+      "n_tokens": 226
+    },
+    {
+      "layer": 3,
+      "psig": 4.0418,
+      "psig_mean": 4.5277,
+      "psig_std": 1.0175,
+      "edge": 1.0017,
+      "entropy": -0.0204,
+      "H1": 28,
+      "n_tokens": 226
+    },
+    {
+      "layer": 4,
+      "psig": 4.7892,
+      "psig_mean": 4.2566,
+      "psig_std": 0.7607,
+      "edge": 0.9999,
+      "entropy": -0.0132,
+      "H1": 42,
+      "n_tokens": 226
+    },
+    {
+      "layer": 5,
+      "psig": 4.0889,
+      "psig_mean": 4.4018,
+      "psig_std": 0.4723,
+      "edge": 1.0009,
+      "entropy": -0.0213,
+      "H1": 30,
+      "n_tokens": 226
+    },
+    {
+      "layer": 6,
+      "psig": 4.6806,
+      "psig_mean": 5.1006,
+      "psig_std": 1.3793,
+      "edge": 0.993,
+      "entropy": -0.0074,
+      "H1": 44,
+      "n_tokens": 226
+    },
+    {
+      "layer": 7,
+      "psig": 5.0577,
+      "psig_mean": 5.8855,
+      "psig_std": 1.0936,
+      "edge": 0.9982,
+      "entropy": -0.016,
+      "H1": 42,
+      "n_tokens": 226
+    },
+    {
+      "layer": 8,
+      "psig": 5.7238,
+      "psig_mean": 5.576,
+      "psig_std": 1.5004,
+      "edge": 0.9998,
+      "entropy": -0.0126,
+      "H1": 43,
+      "n_tokens": 226
+    },
+    {
+      "layer": 9,
+      "psig": 5.3244,
+      "psig_mean": 6.2616,
+      "psig_std": 1.2974,
+      "edge": 1.0004,
+      "entropy": -0.0134,
+      "H1": 39,
+      "n_tokens": 226
+    },
+    {
+      "layer": 10,
+      "psig": 4.0394,
+      "psig_mean": 4.5454,
+      "psig_std": 1.3723,
+      "edge": 1.003,
+      "entropy": -0.0235,
+      "H1": 36,
+      "n_tokens": 226
+    },
+    {
+      "layer": 11,
+      "psig": 0.4848,
+      "psig_mean": 0.4982,
+      "psig_std": 0.2359,
+      "edge": 1.0011,
+      "entropy": -0.2513,
+      "H1": 5,
+      "n_tokens": 226
+    },
+    {
+      "layer": 12,
+      "psig": 0.5387,
+      "psig_mean": 0.5517,
+      "psig_std": 0.1795,
+      "edge": 1.0066,
+      "entropy": -0.2116,
+      "H1": 4,
+      "n_tokens": 226
+    },
+    {
+      "layer": 13,
+      "psig": 0.5186,
+      "psig_mean": 0.5642,
+      "psig_std": 0.3238,
+      "edge": 1.0042,
+      "entropy": -0.226,
+      "H1": 4,
+      "n_tokens": 226
+    },
+    {
+      "layer": 14,
+      "psig": 0.3342,
+      "psig_mean": 0.6407,
+      "psig_std": 0.3061,
+      "edge": 0.9969,
+      "entropy": -0.206,
+      "H1": 2,
+      "n_tokens": 226
+    },
+    {
+      "layer": 15,
+      "psig": 0.595,
+      "psig_mean": 0.6342,
+      "psig_std": 0.1796,
+      "edge": 0.9993,
+      "entropy": -0.1938,
+      "H1": 6,
+      "n_tokens": 226
+    },
+    {
+      "layer": 16,
+      "psig": 0.5297,
+      "psig_mean": 0.5692,
+      "psig_std": 0.2394,
+      "edge": 0.9944,
+      "entropy": -0.2027,
+      "H1": 4,
+      "n_tokens": 226
+    },
+    {
+      "layer": 17,
+      "psig": 0.611,
+      "psig_mean": 0.678,
+      "psig_std": 0.1708,
+      "edge": 0.9998,
+      "entropy": -0.1844,
+      "H1": 5,
+      "n_tokens": 226
+    },
+    {
+      "layer": 18,
+      "psig": 0.8974,
+      "psig_mean": 0.9286,
+      "psig_std": 0.3022,
+      "edge": 1.0055,
+      "entropy": -0.1589,
+      "H1": 8,
+      "n_tokens": 226
+    },
+    {
+      "layer": 19,
+      "psig": 1.2227,
+      "psig_mean": 0.9277,
+      "psig_std": 0.2293,
+      "edge": 1.0034,
+      "entropy": -0.1195,
+      "H1": 8,
+      "n_tokens": 226
+    },
+    {
+      "layer": 20,
+      "psig": 1.1087,
+      "psig_mean": 1.0276,
+      "psig_std": 0.2039,
+      "edge": 1.0034,
+      "entropy": -0.166,
+      "H1": 7,
+      "n_tokens": 226
+    },
+    {
+      "layer": 21,
+      "psig": 1.248,
+      "psig_mean": 1.0518,
+      "psig_std": 0.2369,
+      "edge": 0.998,
+      "entropy": -0.0915,
+      "H1": 11,
+      "n_tokens": 226
+    },
+    {
+      "layer": 22,
+      "psig": 1.7203,
+      "psig_mean": 1.2245,
+      "psig_std": 0.4422,
+      "edge": 1.0032,
+      "entropy": -0.0578,
+      "H1": 12,
+      "n_tokens": 226
+    },
+    {
+      "layer": 23,
+      "psig": 1.4723,
+      "psig_mean": 1.7427,
+      "psig_std": 0.2814,
+      "edge": 1.0001,
+      "entropy": -0.05,
+      "H1": 10,
+      "n_tokens": 226
+    },
+    {
+      "layer": 24,
+      "psig": 2.7148,
+      "psig_mean": 2.355,
+      "psig_std": 0.2993,
+      "edge": 0.9971,
+      "entropy": -0.0293,
+      "H1": 22,
+      "n_tokens": 226
+    },
+    {
+      "layer": 25,
+      "psig": 1.7067,
+      "psig_mean": 2.3347,
+      "psig_std": 0.8093,
+      "edge": 1.0034,
+      "entropy": -0.0574,
+      "H1": 11,
+      "n_tokens": 226
+    },
+    {
+      "layer": 26,
+      "psig": 2.7192,
+      "psig_mean": 2.9873,
+      "psig_std": 0.843,
+      "edge": 0.9978,
+      "entropy": -0.0269,
+      "H1": 21,
+      "n_tokens": 226
+    },
+    {
+      "layer": 27,
+      "psig": 3.392,
+      "psig_mean": 2.5155,
+      "psig_std": 0.5357,
+      "edge": 0.998,
+      "entropy": -0.0231,
+      "H1": 26,
+      "n_tokens": 226
+    },
+    {
+      "layer": 28,
+      "psig": 2.3931,
+      "psig_mean": 1.9831,
+      "psig_std": 0.5117,
+      "edge": 1.003,
+      "entropy": -0.0424,
+      "H1": 13,
+      "n_tokens": 226
+    },
+    {
+      "layer": 29,
+      "psig": 6.6687,
+      "psig_mean": 6.388,
+      "psig_std": 0.7287,
+      "edge": 0.9988,
+      "entropy": -0.0134,
+      "H1": 58,
+      "n_tokens": 226
+    }
+  ],
+  "kruskal_H": 163.721,
+  "kruskal_p": 9.74115184861917e-21,
+  "contrast_max_min": 8.5825,
+  "contrast_ratio": 26.68,
+  "verdict": "CONTRASTE SIGNIFICATIF (p<0.05)",
+  "sha256_proof": "866857510d5a4a32e3dc76dd24a76a0a1f00b277b980ec042691f4cdf721d47f"
+}
