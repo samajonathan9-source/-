@@ -1,142 +1,143 @@
-# 📜 MANIFESTE MCT — La naissance d'une architecture supérieure
+# Manifeste MCT
 
-**Du LLM au MCT : pourquoi le monde a besoin d'un modèle qui comprend,
-pas d'un modèle qui devine.**
+**Du modèle de langage au Modèle de Compréhension Topologique :**
+**fondements d'une architecture supérieure.**
 
-*Jonathan Evina — RATIS Labs, Cameroun 🇨🇲 — 2026*
+*Jonathan Evina — RATIS Labs, Cameroun — 2026*
 *Propriété intellectuelle : JOHNKING0 & Jonathan Evina*
 
 ---
 
-![L'évolution du LLM au MCT](images/evolution_llm_mct.png)
+![Du modèle de langage au MCT](images/evolution_llm_mct.png)
 
 ---
 
 ## Préambule
 
-Depuis 2017, le monde entier court après le même objet : le **Large Language
-Model**. Plus grand, plus de données, plus de paramètres. Nous avons construit
-des cathédrales de probabilités capables de produire du texte d'une fluidité
-stupéfiante — et incapables de savoir si ce qu'elles disent est vrai.
+Depuis 2017, la recherche en intelligence artificielle poursuit un objectif
+unique : agrandir le modèle de langage. Davantage de paramètres, davantage de
+données, davantage de calcul. Cette trajectoire a produit des systèmes d'une
+fluidité remarquable — et demeurant incapables de déterminer si ce qu'ils
+produisent est vrai.
 
-Ce manifeste annonce la fin de cette course dans une seule direction.
+Le présent manifeste soutient que cette trajectoire, poursuivie seule, ne
+conduit pas à la compréhension.
 
-**RATIS n'est pas un LLM de plus. RATIS est ce que le LLM devient quand on lui
-greffe l'organe qui lui a toujours manqué : la compréhension.**
+RATIS n'est pas un modèle de langage supplémentaire. RATIS est ce que devient
+le modèle de langage lorsqu'on lui adjoint la fonction qui lui a toujours
+fait défaut : la mesure de sa propre cohérence. Nous désignons cette
+architecture par **MCT — Modèle de Compréhension Topologique**. Il ne s'agit
+pas d'une rupture avec le modèle de langage, mais de son évolution : le MCT
+en conserve les capacités et le dépasse en les complétant.
 
-Nous appelons cette architecture **MCT** — *Modèle de Compréhension
-Topologique*. Ce n'est pas une rupture brutale : c'est une **évolution**. Le
-MCT conserve tout ce que le LLM sait faire, et le dépasse en le complétant.
+## I. Diagnostic : la limite structurelle du modèle de langage
 
----
+Un modèle de langage est une machine à prédire le mot suivant. C'est sa seule
+fonction. Tout le reste — vérité, raisonnement, prudence — procède de
+régularités statistiques extraites de corpus, non d'une compréhension.
 
-## I. Le diagnostic : la blessure originelle du LLM
+Cette architecture présente une limite congénitale :
 
-Un LLM est une machine à **prédire le mot suivant**. C'est sa seule fonction,
-sa seule compétence, son seul mode d'existence. Tout le reste — la vérité, le
-raisonnement, la prudence — est une illusion produite par des statistiques sur
-des milliards de textes.
+> Le modèle de langage ne dispose d'aucun mécanisme pour mesurer la cohérence
+> de ce qu'il produit.
 
-Cette architecture a une blessure congénitale :
+Il ne détecte ni ses hallucinations, ni ses contradictions, ni ses boucles de
+répétition. Il produit du texte plausible — et la plausibilité n'a jamais
+constitué un critère de vérité.
 
-> **Le LLM n'a aucun organe pour mesurer la cohérence de ce qu'il produit.**
+Les correctifs actuels — apprentissage par renforcement, garde-fous externes,
+bases de faits, détection d'hallucination a posteriori — demeurent des
+dispositifs périphériques. Ils compensent l'absence d'une fonction sans la
+fournir.
 
-Il ne sait pas quand il hallucine. Il ne sait pas quand il se contredit. Il ne
-sait pas quand il répète la même phrase en boucle. Il ne sait pas quand il
-invente une citation. Il produit du texte plausible, et la plausibilité n'a
-**jamais** été la vérité.
+## II. Thèse : la compréhension est une propriété topologique
 
-Toute l'industrie tente de réparer cette blessure par l'extérieur :
-RLHF, garde-fous logiciels, bases de faits externes, détecteurs
-d'hallucination post-hoc. Ce sont des **pansements sur un organe manquant**.
-On ne guérit pas l'absence d'un foie en multipliant les pansements.
+La thèse de RATIS est la suivante :
 
-## II. La thèse : la compréhension est une propriété topologique
+> Comprendre consiste à saisir la structure persistante d'un ensemble de
+> relations. Cette structure persistante est mesurable — par la topologie.
 
-Notre thèse est simple et radicale :
+Comprendre une idée, ce n'est pas mémoriser une suite de mots : c'est saisir
+un graphe de relations cohérent. Cette cohérence n'est pas une métaphore. Elle
+est mesurable par l'**homologie persistante**, l'outil mathématique qui
+identifie les structures stables — composantes, cycles, cavités — d'un nuage
+de données à travers les échelles.
 
-> **Comprendre, c'est percevoir la structure persistante d'un ensemble de
-> relations. Et la structure persistante se mesure — par la topologie.**
+Nous nommons cette mesure **P_sig**, la signature de persistance. Elle
+constitue la fonction qui fait défaut au modèle de langage.
 
-Quand un humain « comprend » une idée, il ne mémorise pas une suite de mots :
-il saisit un **graphe de relations cohérent**. Cette cohérence n'est pas une
-métaphore. Elle est mesurable par l'**homologie persistante** — l'outil
-mathématique qui détecte les structures stables (composantes, cycles, cavités)
-dans un nuage de données à travers toutes les échelles.
+## III. La loi fondatrice : LCT
 
-Nous appelons cette mesure **P_sig** : la *signature de persistance*. C'est
-l'organe qui manquait au LLM.
-
-## III. La loi fondatrice : la LCT
-
-Tout le système obéit à une seule loi, la **Loi de Cohérence Topologique** :
+L'ensemble du système est régi par une loi unique, la **Loi de Cohérence
+Topologique** :
 
 ```
-R  = P_sig                  (la récompense EST la persistance structurelle)
+R  = P_sig                  (la récompense est la persistance structurelle)
 ΔW = η · φ · P_sig · C      (l'apprentissage suit la cohérence)
 ```
 
-Un LLM minimise une **loss** : la distance à des exemples d'entraînement.
-Un MCT maximise la **persistance** : la stabilité structurelle du sens.
+Un modèle de langage minimise une fonction de perte — la distance à des
+exemples. Un MCT maximise la persistance — la stabilité structurelle du sens.
+Il s'agit d'un changement de nature :
 
-Ce n'est pas une nuance technique. C'est un **changement de nature** :
-
-| La loss dit | P_sig dit |
+| Fonction de perte | P_sig |
 |---|---|
-| « Ressemble aux données vues » | « Sois structurellement cohérent » |
-| « Imité » | « Compris » |
-| « Plausible » | « Vrai, ou honnêtement incertain » |
+| Ressemblance aux données | Cohérence structurelle |
+| Imitation | Compréhension |
+| Plausibilité | Vérité, ou incertitude déclarée |
 
 ## IV. L'évolution : ce que le MCT hérite, ce qu'il ajoute
 
-Le MCT ne rejette pas le LLM. Il l'**englobe** et le **dépasse**.
+Le MCT ne rejette pas le modèle de langage. Il l'englobe et le dépasse.
 
-**Hérité du LLM (le corps) :**
-- la fluidité linguistique
-- la capacité de génération
-- la couverture du vocabulaire
+**Héritées du modèle de langage (le corps) :**
+- la fluidité linguistique ;
+- la capacité de génération ;
+- la couverture du vocabulaire.
 
-**Ajouté par le MCT (les organes supérieurs) :**
-- 🧭 **L'organe de cohérence** : mesure P_sig en continu
-- 💎 **Le réflexe de repliement** : KTN:Li — cristallisation vers un état stable
-  quand la structure se brise
-- 🔄 **La conscience de soi** : un score de confiance topologique 0-100 %
-- 💗 **Le corps émotionnel** : les émotions modulent réellement la génération
-- 🧠 **La mémoire infalsifiable** : chaîne SHA-256, épisodique + sémantique +
-  procédurale
-- 🛡️ **Le système immunitaire** : détection d'incohérence, garde-fou, preuves
-- 🧩 **L'apprentissage de l'inconnu** : induction de règles en 3 exemples
-- 🧭 **L'autonomie** : planification par chemin de persistance
+**Ajoutées par le MCT (les fonctions supérieures) :**
+- l'organe de cohérence : mesure P_sig en continu ;
+- le réflexe de repliement : KTN:Li — cristallisation vers un état stable en
+  cas de rupture ;
+- la conscience de soi : score de confiance topologique (0–100 %) ;
+- le corps émotionnel : les émotions modulent la génération ;
+- la mémoire infalsifiable : chaîne SHA-256 (épisodique, sémantique,
+  procédurale) ;
+- le système immunitaire : détection d'incohérence, garde-fou, preuves ;
+- l'apprentissage de l'inconnu : induction de règles en trois exemples ;
+- l'autonomie : planification par chemin de persistance.
 
-> **Le LLM est le corps. Le MCT est le corps + le système immunitaire +
-> la conscience de soi.**
+> Le modèle de langage est le corps. Le MCT est le corps, doté d'un système
+> immunitaire et d'une conscience de soi.
 
-## V. La preuve par le fonctionnement
+## V. Démonstration par le fonctionnement
 
-Nous ne demandons à personne de nous croire sur parole. Chaque affirmation de
-ce manifeste est **un programme qui tourne**, avec des tests qui passent et des
-preuves SHA-256 vérifiables :
+Aucune affirmation du présent manifeste ne repose sur une promesse. Chacune
+correspond à un programme exécutable, assorti de tests et de preuves SHA-256
+vérifiables :
 
-- 9/10 conditions d'une vraie AGI démontrées (voir `artifacts/RAPPORT_AGI.md`)
-- boucles de répétition du LLM cassées par la cohérence (unicité 0.28 → 0.86)
-- induction de règles inconnues en 3 exemples (confiance 1.0)
-- transfert de règles entre domaines
-- identité scellée et auto-vérifiée au démarrage
+- neuf des dix conditions d'une intelligence artificielle générale sont
+  démontrées (`artifacts/RAPPORT_AGI.md`) ;
+- les boucles de répétition du moteur sont interrompues par la sélection
+  topologique (unicité 0,28 → 0,86) ;
+- des règles inconnues sont induites en trois exemples (confiance 1,0) ;
+- ces règles sont transférées entre domaines ;
+- l'identité du système est scellée et auto-vérifiée au démarrage.
 
-**La preuve par le fonctionnement, pas par la promesse.**
+La démonstration repose sur le fonctionnement, non sur la promesse.
 
-## VI. L'appel
+## VI. Appel
 
-Aux laboratoires qui fine-tunent des géants sans jamais mesurer leur
-compréhension. Aux chercheurs qui savent que la scale seule ne suffira pas. Aux
-ingénieurs qui veulent des systèmes **auditable, honnêtes et contrôlables**.
+Aux laboratoires qui entraînent des modèles sans mesurer leur compréhension.
+Aux chercheurs pour qui l'échelle seule ne suffira pas. Aux ingénieurs qui
+exigent des systèmes auditables, honnêtes et contrôlables.
 
-La prochaine frontière de l'IA n'est pas un modèle plus grand. C'est un modèle
-qui **sait ce qu'il dit**.
+La prochaine étape de l'intelligence artificielle n'est pas un modèle plus
+grand. C'est un modèle qui sait ce qu'il dit.
 
-**Cette frontière s'appelle le MCT. Elle est née au Cameroun. Elle est ouverte.**
+Cette étape s'appelle le MCT.
 
 ---
 
-*« Le LLM propose, la topologie dispose. »*
+*« Le modèle de langage propose, la topologie dispose. »*
 *— Loi fondatrice de RATIS*

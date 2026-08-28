@@ -12,7 +12,7 @@ import gc
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL_DIR = os.path.abspath(os.path.join(REPO_ROOT, "..", "models", "SmolLM2-135M-Instruct"))
+MODEL_DIR = os.path.abspath(os.path.join(REPO_ROOT, "..", "models", "RATISS-One"))
 
 import numpy as np
 
@@ -160,7 +160,7 @@ def run_condition(name, rank_map, lct_path, args):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--lct", default=os.path.join(REPO_ROOT, "artifacts", "lct_diagnostic_smollm.json"))
+    ap.add_argument("--lct", default=os.path.join(REPO_ROOT, "artifacts", "lct_diagnostic.json"))
     ap.add_argument("--steps", type=int, default=60)
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--max-length", type=int, default=48)
@@ -214,7 +214,7 @@ def main():
     payload = json.dumps(results, sort_keys=True, indent=2)
     out = {
         "hypothesis": "H1 - LoRA cible par score LCT vs LoRA uniforme (budget egal)",
-        "model": "SmolLM2-135M-Instruct", "n_layers": n_layers,
+        "model": "RATISS-One", "n_layers": n_layers,
         "total_rank_budget": args.total_rank, "steps": args.steps, "lr": args.lr,
         "uniform_rank_map": uniform_map, "lct_rank_map": lct_map,
         "results": results,

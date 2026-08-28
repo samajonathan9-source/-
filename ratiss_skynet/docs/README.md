@@ -1,11 +1,11 @@
-# 📚 Documentation RATIS (MCT)
+# Documentation RATIS (MCT)
 
 Bienvenue dans la documentation complète de **RATIS**, le premier
 **Modèle de Compréhension Topologique** — l'évolution supérieure du LLM.
 
 ---
 
-## 🚀 Par où commencer
+## Par où commencer
 
 1. **[Manifeste MCT](MANIFESTE_MCT.md)** — la vision : pourquoi le monde a
    besoin d'un modèle qui comprend. *Commencez ici.*
@@ -13,13 +13,13 @@ Bienvenue dans la documentation complète de **RATIS**, le premier
 3. **[Démarrage rapide](DEMARRAGE.md)** — installer et faire tourner en 5 min.
 4. **[Exemples](EXEMPLES.md)** — RATIS en action : cas concrets commentés.
 
-## 🏛️ Comprendre l'architecture
+## Comprendre l'architecture
 
 - **[Architecture](ARCHITECTURE.md)** — le pipeline HYBRID MIND, module par module
 - **[Glossaire](GLOSSAIRE.md)** — LCT, P_sig, KTN:Li, TPP, MSTM, RTD, PNE…
 - **[API](API.md)** — référence des interfaces publiques
 
-## 🔬 Approfondir
+## Approfondir
 
 - **[Effets du fine-tuning](FINETUNING_EFFETS.md)** — risques et invariants
   avant tout entraînement
@@ -28,7 +28,7 @@ Bienvenue dans la documentation complète de **RATIS**, le premier
 - **[Rapport AGI](../artifacts/RAPPORT_AGI.md)** — 9/10 conditions d'une vraie
   AGI démontrées
 
-## 🖼️ Schémas
+## Schémas
 
 - `images/hybrid_mind_architecture.png` — l'architecture HYBRID MIND
 - `images/mct_vs_llm.png` — LLM (boucle de surface) vs MCT (boucle de profondeur)

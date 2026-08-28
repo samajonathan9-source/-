@@ -10,7 +10,7 @@ L'orchestrateur principal.
 
 ```python
 from skynet.hybrid_mind import HybridMind
-mind = HybridMind("models/SmolLM2-135M-Instruct")
+mind = HybridMind("models/RATISS-One")
 ```
 
 ### `respond(query, language=None, guided=True) -> dict`

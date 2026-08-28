@@ -1,4 +1,4 @@
-# 💡 EXEMPLES — RATIS (MCT) en action
+# Exemples — RATIS (MCT) en fonctionnement
 
 Des cas concrets, avec le comportement attendu du MCT.
 

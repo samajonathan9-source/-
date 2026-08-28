@@ -171,7 +171,7 @@ class HybridMind:
         if head.startswith(b"version https://git-lfs"):
             url = ("https://media.githubusercontent.com/media/"
                    "samajonathan9-source/ratiss-Skynet/main/"
-                   "models/SmolLM2-135M-Instruct/model.safetensors")
+                   "models/RATISS-One/model.safetensors")
             import urllib.request
             print("  [poids LFS] telechargement des vrais poids (257 Mo)...")
             urllib.request.urlretrieve(url, st_path)

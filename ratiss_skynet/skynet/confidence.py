@@ -37,7 +37,7 @@ class TopologicalConfidence:
 
     def __init__(self, psig_reference=60.0):
         # reference empirique : P_sig d'une phrase coherente de ~20 tokens
-        # (calibre sur les observations SmolLM2 : brut~40-70, coherent~90-120)
+        # (calibre sur les observations du moteur RATISS One : brut~40-70, coherent~90-120)
         self.psig_reference = psig_reference
 
     def score(self, text, psig, facts=None):

@@ -17,7 +17,7 @@ et options d'installation à valider par Jonathan.
 > **« Enlever définitivement le nom du LLM, greffer RATIS comme identité
 > complète sur lui-même, figer tous les détails à jamais. »**
 
-- [ ] 1.1. Purger toute référence au modèle de base (SmolLM2) de la mémoire,
+- [ ] 1.1. Purger toute référence au modèle de base de la mémoire,
       du code exposé, des réponses. Le modèle **est RATIS**.
 - [ ] 1.2. Créer `skynet/identity.py` : identité RATIS figée (nom, mission,
       nature = MCT, créateur, loi LCT, date de scellement, hash SHA-256

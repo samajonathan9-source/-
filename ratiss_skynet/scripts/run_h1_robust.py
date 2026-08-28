@@ -11,7 +11,7 @@ import gc
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL_DIR = os.path.abspath(os.path.join(REPO_ROOT, "..", "models", "SmolLM2-135M-Instruct"))
+MODEL_DIR = os.path.abspath(os.path.join(REPO_ROOT, "..", "models", "RATISS-One"))
 
 import numpy as np
 from scipy import stats
@@ -137,7 +137,7 @@ def run_once(name, rank_map, args, seed):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--lct", default=os.path.join(REPO_ROOT, "artifacts", "lct_diagnostic_smollm.json"))
+    ap.add_argument("--lct", default=os.path.join(REPO_ROOT, "artifacts", "lct_diagnostic.json"))
     ap.add_argument("--steps", type=int, default=100)
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--max-length", type=int, default=48)
@@ -193,7 +193,7 @@ def main():
     payload = json.dumps(records, sort_keys=True, indent=2)
     out = {
         "hypothesis": "H1 robuste - LoRA cible LCT vs uniforme, multi-seeds",
-        "model": "SmolLM2-135M-Instruct", "n_layers": n_layers,
+        "model": "RATISS-One", "n_layers": n_layers,
         "steps": args.steps, "lr": args.lr, "seeds": args.seeds,
         "total_rank_budget": args.total_rank,
         "uniform_mean_ppl": round(float(uni_ppl.mean()), 2),

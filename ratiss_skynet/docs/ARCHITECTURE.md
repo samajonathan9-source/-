@@ -124,7 +124,7 @@ Voir `training/PROTOCOLE.md` pour l'application à l'entraînement.
 | `artifacts/hybrid_memory.jsonl` | Mémoire chaînée (chaque ligne = 1 entrée hashée) |
 | `artifacts/RAPPORT_AGI.md` | Grille des 10 conditions AGI |
 | `artifacts/*.json` | Rapports de tests (JSON + reproductible) |
-| `models/SmolLM2-135M-Instruct/` | Moteur de génération (poids LFS) |
+| `models/` | Moteur de génération RATISS One (poids LFS) |
 
 ---
 

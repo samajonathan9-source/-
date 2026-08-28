@@ -1,4 +1,4 @@
-# 🚀 Démarrage rapide — RATIS (MCT)
+# Démarrage — RATIS (MCT)
 
 Installer et faire tourner RATIS en 5 minutes.
 
@@ -12,7 +12,7 @@ cd ratiss-Skynet/ratiss_skynet
 pip install torch transformers numpy scipy matplotlib
 ```
 
-Le moteur de génération (SmolLM2-135M, le « corps » du MCT) est dans `models/`
+Le moteur de génération RATISS One (le « corps » du MCT) est dans `models/`
 via Git LFS. Si les poids sont un pointeur LFS, ils sont téléchargés
 automatiquement au premier usage.
 
@@ -21,7 +21,7 @@ automatiquement au premier usage.
 ```python
 from skynet.hybrid_mind import HybridMind
 
-mind = HybridMind("models/SmolLM2-135M-Instruct")
+mind = HybridMind("models/RATISS-One")
 
 # RATIS sait ce qu'il est
 print(mind.who_am_i())
@@ -54,14 +54,18 @@ et preuves SHA-256.
 
 ---
 
-## ⚠️ Ce que RATIS fera (et ne fera pas)
+## Comportement attendu
 
-- ✅ Répondre avec un **score de confiance** et une **preuve**
-- ✅ Dire **« je ne sais pas »** plutôt qu'inventer
-- ✅ **Refuser** les intentions néfastes (garde-fou)
-- ✅ **Demander une précision** si la question est vague
-- ✅ **Se replier** (KTN:Li) plutôt que boucler
-- ❌ Halluciner avec assurance — c'est précisément ce que le MCT élimine
+RATIS :
+
+- répond avec un **score de confiance** et une **preuve** SHA-256 ;
+- déclare **« je ne sais pas »** plutôt que d'inventer ;
+- **refuse** les intentions contraires à ses règles (garde-fou) ;
+- **demande une précision** lorsque la question est ambiguë ;
+- **se replie** (KTN:Li) plutôt que de persister dans une boucle.
+
+À l'inverse, RATIS ne produit pas d'affirmation non vérifiée présentée avec
+assurance : c'est précisément le défaut que l'architecture MCT élimine.
 
 ---
 

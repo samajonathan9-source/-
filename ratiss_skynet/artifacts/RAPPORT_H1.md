@@ -70,7 +70,7 @@ Preuve SHA-256 : `6ccee0502a1628a5f59412c398056106e1b676eae701b5659547b4cdd55619
 
 ```bash
 # modèle local : models/SmolLM2-135M-Instruct/ (Git LFS)
-python scripts/diagnose_lct_smollm.py     # Phase 2 (gudhi, ~1 min)
+python scripts/diagnose_lct.py     # Phase 2 (gudhi, ~1 min)
 python scripts/run_h1_lora.py --steps 60  # H1 simple
 python scripts/run_h1_robust.py           # Phase 4 (5 seeds, ~8 min)
 ```

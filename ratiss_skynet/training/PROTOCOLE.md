@@ -47,7 +47,7 @@ Si P_sig s'effondre → la porte LCT se ferme → on apprend moins ou pas.
 from skynet.hybrid_mind import HybridMind
 from training.lct_trainer import LCTTrainer
 
-mind = HybridMind("models/SmolLM2-135M-Instruct")
+mind = HybridMind("models/RATISS-One")
 
 config = {
     "learning_rate": 5e-5,

@@ -16,7 +16,7 @@
 Projet de **Jonathan Evina** (RATIS Labs, 🇨🇲) avec son CTO technique (OpenHands).
 Propriété intellectuelle : **JOHNKING0 & Jonathan Evina**.
 
-**Règles de la maison** : *jamais figé, toujours itérer — la transdisciplinarité d'abord — la preuve par le fonctionnement — on n'est pas là pour se lamenter quand ça échoue.*
+**Principes directeurs** : itération permanente — transdisciplinarité — démonstration par le fonctionnement.
 
 ---
 
@@ -35,7 +35,7 @@ Six capacités fusionnées, dans l'ordre du pipeline :
 |---|---|---|---|
 | 0 | 💗 **RESSENTIR** | Corps thermodynamique simulé (ETH) | L'émotion **émerge** et **module** la génération |
 | 1 | 🧭 **COMPRENDRE** | Concepts + faits vérifiés bilingues | Anti-hallucination (RATIS-Net) |
-| 2 | 🗣️ **PARLER** | Le LLM génère, la topologie sélectionne | SmolLM2-135M + génération guidée LCT |
+| 2 | 🗣️ **PARLER** | Le moteur génère, la topologie sélectionne | RATISS One + génération guidée LCT |
 | 3 | 💎 **RÉGÉNÉRER** | Repliement cristallin si motif brisé | **KTN:Li**, seuil modulé par la tension |
 | 4 | 🔄 **BOUCLE FERMÉE** | Score de confiance topologique **0-100%** | Auditabilité temps réel (pas softmax) |
 | 5 | 🔏 **PROUVER** | Empreinte SHA-256 du sous-graphe actif | Reproductibilité |
@@ -96,7 +96,7 @@ ratiss_skynet/
 ├── ratiss/
 │   └── topo/science_core.py    # P_sig, LCT, Vietoris-Rips (AEON ODV)
 ├── scripts/
-│   ├── diagnose_lct_smollm.py  # Phase 2 — diagnostic LCT (gudhi, ~1 min)
+│   ├── diagnose_lct.py  # Phase 2 — diagnostic LCT (gudhi, ~1 min)
 │   ├── run_h1_lora.py          # Phase 3 — H1 LoRA ciblé vs uniforme
 │   ├── run_h1_robust.py        # Phase 4 — benchmark multi-seeds
 │   ├── demo_hybrid.py          # démo HYBRID MIND (FR/EN)
@@ -105,7 +105,7 @@ ratiss_skynet/
 └── docs/images/                # schéma d'architecture
 ```
 
-Le modèle (`models/SmolLM2-135M-Instruct/`, Git LFS) vit **dans ce repo** —
+Le moteur RATISS One (`models/`, Git LFS) vit **dans ce repo** —
 pas de téléchargement externe.
 
 ---
@@ -122,7 +122,7 @@ pip install transformers peft scipy numpy gudhi
 cd ratiss_skynet
 python scripts/demo_hybrid.py            # HYBRID MIND répond FR/EN
 python scripts/test_transform_fast.py    # la preuve de transformation
-python scripts/diagnose_lct_smollm.py    # le diagnostic topologique
+python scripts/diagnose_lct.py    # le diagnostic topologique
 ```
 
 ---
