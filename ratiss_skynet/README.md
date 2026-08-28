@@ -34,7 +34,9 @@ Six capacités fusionnées, dans l'ordre du pipeline :
 | 4 | 🔄 **BOUCLE FERMÉE** | Score de confiance topologique **0-100%** | Auditabilité temps réel (pas softmax) |
 | 5 | 🔏 **PROUVER** | Empreinte SHA-256 du sous-graphe actif | Reproductibilité |
 
-**Couches expérimentales du laboratoire** : 🔁 **RLM × KTN** (`rlm_layer.py`, décomposition récursive) · ⚛️ **Grover** (`quantum_select.py`, amplification vers les candidats cohérents).
+**Couches expérimentales du laboratoire** : 🔁 **RLM × KTN** (`rlm_layer.py`, décomposition récursive) · ⚛️ **Grover** (`quantum_select.py`, amplification vers les candidats cohérents) · 🧩 **Induction few-shot** (`arc_induction.py`, apprendre une règle inconnue en 3 exemples — la règle juste préserve la signature topologique) · 🧠 **Mémoire contrôlée** (`memory.py`, épisodique + sémantique + procédurale, chaîne SHA-256 infalsifiable).
+
+📊 **Face aux 10 conditions d'une vraie AGI** (fiche Manus AI) : 4 démontrées, 4 partielles, 2 absentes — analyse honnête dans [`artifacts/RAPPORT_AGI.md`](artifacts/RAPPORT_AGI.md).
 
 **La clef : la génération guidée par LCT** (`draft_guided`). Le LLM propose N candidats ;
 la topologie — **P_sig**, la persistance homologique du graphe de corrélations —

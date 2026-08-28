@@ -23,6 +23,7 @@ import numpy as np
 
 from skynet.confidence import TopologicalConfidence
 from skynet.thermo_emotions import EmotionEngine
+from skynet.memory import HybridMemory
 
 # ---------------------------------------------------------------------------
 # Knowledge packs (faits verifies, bilingue) — anti-hallucination.
@@ -87,6 +88,9 @@ class HybridMind:
         self._tok = None
         self.confidence = TopologicalConfidence()
         self.emotions = EmotionEngine()
+        mem_path = os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), "artifacts", "hybrid_memory.jsonl")
+        self.memory = HybridMemory(mem_path)
 
     # ---------------- PARLER : le LLM ----------------
     def _ensure_weights(self):
@@ -354,6 +358,11 @@ class HybridMind:
 
         # 5. PROUVER
         proof = self.prove(u["concepts"], facts, draft)
+
+        # 6. MEMORISER : episode dans la memoire chainee (condition AGI n°5)
+        self.memory.remember_episode(query, draft,
+                                     emotion=emo_step["emotion"]["label"],
+                                     confidence=conf_score)
         return {
             "query": query,
             "sentence": draft,
