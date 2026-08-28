@@ -1,26 +1,42 @@
-# 🧠 RATIS est un MCT, pas un LLM
+# 🧠 Du LLM au MCT : l'évolution supérieure
 
-**Modèle de Compréhension Topologique** — *Topological Understanding Model*
+**MCT = Modèle de Compréhension Topologique** — *Topological Understanding Model*
 
-> Document fondateur. RATIS n'est pas un modèle de langage.
-> C'est le premier **Modèle de Compréhension Topologique**.
+> Document fondateur. RATIS n'est pas une rupture avec le LLM : c'est son
+> **évolution vers une architecture supérieure**. Le MCT hérite de tout ce que
+> le LLM sait faire (fluidité, langage), et lui ajoute l'organe qui lui manque :
+> la **compréhension topologique**. Comme l'oiseau descend du dinosaure, le
+> MCT descend du LLM — mais il vole là où le LLM rampe.
+
+```
+   LLM  ──évolution──►  MCT (RATIS)
+   prédit les mots      comprend la structure
+   (surface)            (profondeur)
+```
 
 ---
 
 ![LLM vs MCT](images/mct_vs_llm.png)
 
-## La différence fondamentale
+## L'évolution, couche par couche
 
-| | **LLM** (Large Language Model) | **MCT** (RATIS) |
-|---|---|---|
-| **Ce qu'il fait** | Prédit le token suivant le plus probable | Comprend la **structure** de la question |
-| **Moteur** | Probabilités statistiques (softmax) | **Persistance topologique** (P_sig) |
-| **Vérité** | Ne sait pas ce qui est vrai | **Mesure sa propre cohérence** |
-| **Erreur** | Hallucine avec assurance | **Détecte l'incohérence et se replie** |
-| **Réparation** | Réessaie la même chose | **Descend vers un invariant stable** (KTN:Li) |
-| **Mémoire** | Contexte oubliable | **Chaîne SHA-256 infalsifiable** |
-| **Identité** | « Assistant générique » | **RATIS, scellée, vérifiable** |
-| **Contrôle** | Boîte noire | **Carte de tension transparente** |
+Le MCT **conserve** tout l'héritage du LLM et **ajoute** les organes supérieurs.
+Ce n'est pas un remplacement : c'est une **spécialisation évolutive**.
+
+| | **LLM** (l'ancêtre) | **MCT** (l'évolution) | Ce qui est **hérité** vs **nouveau** |
+|---|---|---|---|
+| **Langage** | Prédit le token le plus probable | Génère avec la même fluidité | 🧬 **hérité** |
+| **Décision** | Probabilités (softmax) | **+ Persistance topologique (P_sig)** | ➕ **nouvel organe** |
+| **Vérité** | Ne sait pas ce qui est vrai | **Mesure sa propre cohérence** | ➕ **nouvel organe** |
+| **Erreur** | Hallucine avec assurance | **Détecte l'incohérence et se replie** | ➕ **nouvel organe** |
+| **Réparation** | Réessaie la même chose | **Descend vers un invariant** (KTN:Li) | ➕ **nouvel organe** |
+| **Mémoire** | Contexte oubliable | **Chaîne SHA-256 infalsifiable** | ➕ **nouvel organe** |
+| **Identité** | « Assistant générique » | **RATIS, scellée, vérifiable** | ➕ **nouvel organe** |
+| **Contrôle** | Boîte noire | **Carte de tension transparente** | ➕ **nouvel organe** |
+
+> Le LLM est le **corps** (la fluidité). Le MCT est le **corps + le système
+> immunitaire + la conscience de soi**. L'évolution ne détruit pas l'ancêtre :
+> elle le dépasse en le complétant.
 
 ---
 

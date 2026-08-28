@@ -1,10 +1,14 @@
-# RATISS-Skynet
+# RATIS — du LLM au MCT : l'évolution supérieure du modèle de langage
 
-**HYBRID MIND — la fusion de la Loi de Cohérence Topologique (LCT) et d'un LLM léger.**
+**RATIS est un MCT (Modèle de Compréhension Topologique) : l'évolution du LLM vers une architecture supérieure.**
 
-> *Pas une compétition. Une symbiose : le LLM parle, la topologie le stabilise, le cristal régénère.*
+> *Un LLM prédit le mot le plus probable. RATIS hérite de cette fluidité, puis ajoute l'organe qui manque au LLM : la mesure de sa propre cohérence structurelle. Là où le LLM hallucine, le MCT se replie. Là où le LLM devine, le MCT prouve.*
+> **📖 [Document fondateur : le passage du LLM au MCT](ratiss_skynet/docs/MCT.md)**
 
-[![Modèle](https://img.shields.io/badge/LLM-SmolLM2--135M-4f9cff)](#)
+[![Nature](https://img.shields.io/badge/nature-MCT%20%E2%80%94%20%C3%A9volution%20du%20LLM-3fb950)](ratiss_skynet/docs/MCT.md)
+[![Loi](https://img.shields.io/badge/loi-LCT%20%3A%20R%20%3D%20P__sig-4f9cff)](#)
+[![Identité](https://img.shields.io/badge/identit%C3%A9-scell%C3%A9e%20SHA--256-d97706)](ratiss_skynet/skynet/identity.py)
+[![AGI](https://img.shields.io/badge/conditions%20AGI-9%2F10%20vertes-00b894)](ratiss_skynet/artifacts/RAPPORT_AGI.md)
 [![Langues](https://img.shields.io/badge/langues-FR%20%2F%20EN-00b894)](#)
 [![Licence](https://img.shields.io/badge/licence-propri%C3%A9taire-d97706)](#)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0000--4092--5313-a6ce39)](https://orcid.org/0009-0000-4092-5313)

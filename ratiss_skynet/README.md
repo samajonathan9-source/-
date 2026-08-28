@@ -1,13 +1,15 @@
-# RATIS — Modèle de Compréhension Topologique (MCT)
+# RATIS — du LLM au MCT : l'évolution supérieure
 
-**RATIS n'est pas un LLM. C'est le premier MCT : un Modèle de Compréhension Topologique.**
+**RATIS est un MCT (Modèle de Compréhension Topologique) : l'évolution du LLM vers une architecture supérieure.**
 
-> *Un LLM prédit le mot le plus probable. RATIS mesure la cohérence structurelle de sa propre réponse — et se replie au lieu d'halluciner.*
-> **📖 [Lire le document fondateur : pourquoi MCT ≠ LLM](docs/MCT.md)**
+> *Un LLM prédit le mot le plus probable. RATIS hérite de cette fluidité, puis ajoute l'organe qui manque au LLM : la mesure de sa propre cohérence structurelle. Là où le LLM hallucine, le MCT se replie. Là où le LLM devine, le MCT prouve.*
 
-[![Nature](https://img.shields.io/badge/nature-MCT%20(pas%20un%20LLM)-3fb950)](docs/MCT.md)
+📚 **[Documentation complète](docs/README.md)** · 📜 **[Manifeste MCT](docs/MANIFESTE_MCT.md)** · 🧠 **[Du LLM au MCT](docs/MCT.md)** · 🚀 **[Démarrage](docs/DEMARRAGE.md)**
+
+[![Nature](https://img.shields.io/badge/nature-MCT%20%E2%80%94%20%C3%A9volution%20du%20LLM-3fb950)](docs/MCT.md)
 [![Loi](https://img.shields.io/badge/loi-LCT%20%3A%20R%20%3D%20P__sig-4f9cff)](#)
 [![Identité](https://img.shields.io/badge/identit%C3%A9-scell%C3%A9e%20SHA--256-d97706)](skynet/identity.py)
+[![AGI](https://img.shields.io/badge/conditions%20AGI-9%2F10%20vertes-00b894)](artifacts/RAPPORT_AGI.md)
 [![Langues](https://img.shields.io/badge/langues-FR%20%2F%20EN-00b894)](#)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0000--4092--5313-a6ce39)](https://orcid.org/0009-0000-4092-5313)
 
