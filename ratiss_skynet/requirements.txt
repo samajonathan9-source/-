@@ -1,0 +1,16 @@
+# Cœur topologique (CPU-only OK)
+numpy>=1.26
+scipy>=1.11
+
+# LLM (Phase 1+)
+# torch et transformers sont lourds — installés via scripts/phase0_setup.sh
+# car la compatibilité Python 3.13 exige des wheels précises.
+# torch>=2.2
+# transformers>=4.44
+# peft>=0.11
+
+# Tests
+pytest>=8.0
+
+# Recherche web (fallback DuckDuckGo — sans clé)
+requests>=2.31

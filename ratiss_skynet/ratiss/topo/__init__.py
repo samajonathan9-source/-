@@ -1,0 +1,1 @@
+"""AEON ODV fusionné — science_core (P_sig, LCT, Vietoris-Rips GF(2))."""

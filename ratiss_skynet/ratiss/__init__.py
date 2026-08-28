@@ -1,0 +1,1 @@
+"""RATISS — noyau transdisciplinaire réutilisé (topologie + LLM)."""

@@ -1,0 +1,66 @@
+{
+  "generator": "SyntheticActivations(CPU)",
+  "n_layers": 8,
+  "hidden_size": 64,
+  "batch": 64,
+  "seed": 42,
+  "rows": [
+    {
+      "layer": 0,
+      "psig": 0.1567,
+      "edge": 1.0043,
+      "entropy": -0.003,
+      "H1": 0
+    },
+    {
+      "layer": 1,
+      "psig": 0.1261,
+      "edge": 0.9905,
+      "entropy": 0.0004,
+      "H1": 0
+    },
+    {
+      "layer": 2,
+      "psig": 0.1546,
+      "edge": 0.9982,
+      "entropy": -0.0014,
+      "H1": 0
+    },
+    {
+      "layer": 3,
+      "psig": 0.0001,
+      "edge": 0.7487,
+      "entropy": -0.0051,
+      "H1": 0
+    },
+    {
+      "layer": 4,
+      "psig": 0.0,
+      "edge": 0.7467,
+      "entropy": -0.0055,
+      "H1": 0
+    },
+    {
+      "layer": 5,
+      "psig": 0.1406,
+      "edge": 1.0028,
+      "entropy": -0.0026,
+      "H1": 0
+    },
+    {
+      "layer": 6,
+      "psig": 0.1314,
+      "edge": 0.9951,
+      "entropy": -0.0008,
+      "H1": 0
+    },
+    {
+      "layer": 7,
+      "psig": 0.1195,
+      "edge": 0.9999,
+      "entropy": -0.0021,
+      "H1": 0
+    }
+  ],
+  "sha256_proof": "d6c990f6a4fed7747644d2ddec43f6a843da9473a041a87f49397b00d3c2590e"
+}
