@@ -23,15 +23,23 @@ Propriété intellectuelle : **JOHNKING0 & Jonathan Evina**.
 ## 🧠 L'architecture unifiée : HYBRID MIND
 
 Une **seule** architecture, dans [`ratiss_skynet/skynet/hybrid_mind.py`](ratiss_skynet/skynet/hybrid_mind.py).
-Cinq capacités fusionnées :
+Six capacités fusionnées, dans l'ordre du pipeline :
 
-| Capacité | Rôle | Principe |
+| # | Capacité | Rôle | Principe |
+|---|---|---|---|
+| 0 | 💗 **RESSENTIR** | Corps thermodynamique simulé (ETH) | L'émotion **émerge** et **module** la génération |
+| 1 | 🧭 **COMPRENDRE** | Concepts + faits vérifiés bilingues | Anti-hallucination (RATIS-Net) |
+| 2 | 🗣️ **PARLER** | Le LLM génère, la topologie sélectionne | SmolLM2-135M + génération guidée LCT |
+| 3 | 💎 **RÉGÉNÉRER** | Repliement cristallin si motif brisé | **KTN:Li**, seuil modulé par la tension |
+| 4 | 🔄 **BOUCLE FERMÉE** | Score de confiance topologique **0-100%** | Auditabilité temps réel (pas softmax) |
+| 5 | 🔏 **PROUVER** | Empreinte SHA-256 du sous-graphe actif | Reproductibilité |
+
+**Couches expérimentales du laboratoire** (on teste, on itère) :
+
+| Couche | Idée | Statut |
 |---|---|---|
-| 🧭 **COMPRENDRE** | Concepts + faits vérifiés bilingues | Anti-hallucination (RATIS-Net) |
-| 🗣️ **PARLER** | Le LLM génère la fluidité | SmolLM2-135M-Instruct |
-| 💗 **RESSENTIR** | Valence / arousal émotionnelle | Emocontext adapté |
-| 🔏 **PROUVER** | Empreinte SHA-256 du sous-graphe actif | Audit reproductible |
-| 💎 **RÉGÉNÉRER** | Repliement cristallin si motif brisé | **KTN:Li** |
+| 🔁 **RLM × KTN** (`rlm_layer.py`) | Décomposition récursive des questions complexes + repliement cristallin par maillon faible | ✅ testée |
+| ⚛️ **Grover** (`quantum_select.py`) | Amplification d'amplitude vers les candidats cohérents (inspiré de l'algo quantique) | ✅ testée (1 bon/8 → p=0.76) |
 
 **La clef : la génération guidée par LCT** (`draft_guided`). Le LLM propose N candidats ;
 la topologie — **P_sig**, la persistance homologique du graphe de corrélations —
@@ -59,7 +67,12 @@ connaissances au modèle — elle **stabilise et sélectionne** sa parole.
 ratiss-Skynet/
 ├── models/SmolLM2-135M-Instruct/   # le LLM (Git LFS, 257 Mo)
 └── ratiss_skynet/                  # ⭐ le code + les preuves
-    ├── skynet/hybrid_mind.py       #    l'architecture unifiée
+    ├── skynet/
+    │   ├── hybrid_mind.py          #    l'architecture unifiée (pipeline complet)
+    │   ├── confidence.py           #    🔄 boucle fermée (confiance 0-100%)
+    │   ├── thermo_emotions.py      #    💗 émotions thermodynamiques (ETH)
+    │   ├── rlm_layer.py            #    🔁 RLM récursif × KTN:Li
+    │   └── quantum_select.py       #    ⚛️ sélection Grover-amplifiée
     ├── scripts/                    #    diagnostics, H1, démos, tests
     ├── artifacts/                  #    rapports JSON + SHA-256
     └── README.md                   #    documentation complète

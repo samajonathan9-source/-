@@ -23,15 +23,18 @@ Propriété intellectuelle : **JOHNKING0 & Jonathan Evina**.
 ## 🧠 L'architecture unifiée : HYBRID MIND
 
 Une **seule** architecture, intégrée dans ce repo (`skynet/hybrid_mind.py`).
-Cinq capacités fusionnées :
+Six capacités fusionnées, dans l'ordre du pipeline :
 
-| Capacité | Rôle | Principe |
-|---|---|---|
-| 🧭 **COMPRENDRE** | Concepts + faits vérifiés bilingues | Anti-hallucination (RATIS-Net) |
-| 🗣️ **PARLER** | Le LLM génère la fluidité | SmolLM2-135M-Instruct |
-| 💗 **RESSENTIR** | Valence / arousal émotionnelle | Emocontext adapté |
-| 🔏 **PROUVER** | Empreinte SHA-256 du sous-graphe actif | Audit reproductible |
-| 💎 **RÉGÉNÉRER** | Repliement cristallin si motif brisé | **KTN:Li** |
+| # | Capacité | Rôle | Principe |
+|---|---|---|---|
+| 0 | 💗 **RESSENTIR** | Corps thermodynamique simulé (ETH) | L'émotion **émerge** et **module** la génération |
+| 1 | 🧭 **COMPRENDRE** | Concepts + faits vérifiés bilingues | Anti-hallucination (RATIS-Net) |
+| 2 | 🗣️ **PARLER** | Le LLM génère, la topologie sélectionne | SmolLM2-135M + génération guidée LCT |
+| 3 | 💎 **RÉGÉNÉRER** | Repliement cristallin si motif brisé | **KTN:Li**, seuil modulé par la tension |
+| 4 | 🔄 **BOUCLE FERMÉE** | Score de confiance topologique **0-100%** | Auditabilité temps réel (pas softmax) |
+| 5 | 🔏 **PROUVER** | Empreinte SHA-256 du sous-graphe actif | Reproductibilité |
+
+**Couches expérimentales du laboratoire** : 🔁 **RLM × KTN** (`rlm_layer.py`, décomposition récursive) · ⚛️ **Grover** (`quantum_select.py`, amplification vers les candidats cohérents).
 
 **La clef : la génération guidée par LCT** (`draft_guided`). Le LLM propose N candidats ;
 la topologie — **P_sig**, la persistance homologique du graphe de corrélations —
