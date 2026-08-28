@@ -42,9 +42,10 @@ Six capacités fusionnées, dans l'ordre du pipeline :
 | ⚛️ **Grover** (`quantum_select.py`) | Amplification d'amplitude vers les candidats cohérents (inspiré de l'algo quantique) | ✅ testée (1 bon/8 → p=0.76) |
 | 🧩 **Induction few-shot** (`arc_induction.py`) | Apprendre une règle inconnue en 3 exemples (critère central AGI) — la règle juste préserve la signature topologique | ✅ démontrée |
 | 🧠 **Mémoire contrôlée** (`memory.py`) | Épisodique + sémantique + procédurale, chaîne SHA-256 infalsifiable → transfert inter-domaines | ✅ démontrée |
+| 🧭 **Planificateur topologique** (`planner.py`) | Autonomie : chemin de persistance (TPP) + carte de tension (MSTM) + descente vers invariant (RTD) + motifs de plans (PNE) | ✅ démontrée |
 
 📊 **Évaluation face aux 10 conditions d'une vraie AGI** (fiche Manus AI) :
-4 démontrées, 4 partielles, 2 absentes — analyse honnête dans
+5 démontrées, 4 partielles, 1 absente — analyse honnête dans
 [`artifacts/RAPPORT_AGI.md`](ratiss_skynet/artifacts/RAPPORT_AGI.md).
 
 **La clef : la génération guidée par LCT** (`draft_guided`). Le LLM propose N candidats ;

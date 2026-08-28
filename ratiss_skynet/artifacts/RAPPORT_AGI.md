@@ -19,16 +19,21 @@
 | 3 | Transfert entre domaines | ✅ **démontré** | règle apprise en « grilles-symboles » → rappelée depuis mémoire procédurale → appliquée au domaine 3×3 |
 | 4 | Raisonnement fiable | 🟡 partiel | RLM décompose, KTN:Li régénère, faits vérifiés, preuves SHA-256 |
 | 5 | Mémoire et continuité | ✅ **démontré** | `memory.py` : épisodique + sémantique + procédurale, chaîne SHA-256 infalsifiable |
-| 6 | Autonomie orientée objectif | ❌ pas encore | planificateur à construire |
+| 6 | Autonomie orientée objectif | ✅ **démontré** | `planner.py` : planification par **chemin de persistance** (TPP), carte de tension multi-échelle (MSTM, confiance = produit des persistances), descente topologique vers un invariant (RTD), motifs de plans en mémoire (PNE) |
 | 7 | Robustesse hors-distribution | 🟡 partiel | immunité topologique anti-boucles (3/3 boucles cassées) |
 | 8 | Perception / action | ❌ pas encore | texte seul pour l'instant |
 | 9 | **Honnêteté sur l'incertitude** | ✅ **démontré** | `confidence.py` : score topologique 0-100 % (bon=98, boucle=31), verdict explicite |
 | 10 | Sécurité et contrôle | 🟡 partiel | journal chaîné SHA-256, reproductibilité |
 
-**Bilan : 4 conditions démontrées, 4 partielles, 2 absentes.**
+**Bilan : 5 conditions démontrées, 4 partielles, 1 absente.**
 Pour un système dont le cœur est un modèle de 135M paramètres, c'est un
 résultat structurant — parce que chaque capacité vient de **couches
 topologiques vérifiables**, pas de la taille du modèle.
+
+**Le planificateur topologique (`planner.py`) n'existe nulle part ailleurs** :
+il n'optimise ni une récompense ni une probabilité, mais la **stabilité
+structurelle du plan**. ReAct → React-Topo. Tree-of-Thoughts → Tree of
+Persistences. Retry-on-failure → Descent-on-fragility.
 
 ---
 

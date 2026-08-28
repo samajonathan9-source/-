@@ -1,0 +1,48 @@
+{
+  "mstm": true,
+  "tpp": true,
+  "planner": true,
+  "plan": {
+    "objective": "Expliquer la coherence topologique et ses applications",
+    "plan": [
+      {
+        "task": "clarifier : Expliquer la coherence topologique et ses applications",
+        "persistence": 0.388761759124056,
+        "facts": [
+          "La coherence topologique mesure la persistance structurelle d'un systeme via l'homologie de son graphe de correlations."
+        ]
+      },
+      {
+        "task": "rechercher les faits sur : Expliquer la coherence topologique et ses applications",
+        "persistence": 0.3897576778887861,
+        "facts": [
+          "La coherence topologique mesure la persistance structurelle d'un systeme via l'homologie de son graphe de correlations."
+        ]
+      },
+      {
+        "task": "synthetiser la reponse a : Expliquer la coherence topologique et ses applications",
+        "persistence": 0.6534468040428881,
+        "facts": [
+          "La coherence topologique mesure la persistance structurelle d'un systeme via l'homologie de son graphe de correlations."
+        ]
+      },
+      {
+        "task": "[ancrage] La coherence topologique mesure la persistance structurelle d'un systeme via l'homologie de son graphe de correlations.",
+        "persistence": 0.92,
+        "facts": [
+          "La coherence topologique mesure la persistance structurelle d'un systeme via l'homologie de son graphe de correlations."
+        ],
+        "descended": true
+      }
+    ],
+    "n_steps": 4,
+    "global_confidence": 9.1,
+    "tension_map": "carte de tension du plan :\n  [stable  ] clarifier : Expliquer la coherence topol P=0.39 |#######             | T=0.61\n  [stable  ] rechercher les faits sur : Expliquer la  P=0.39 |#######             | T=0.61\n  [stable  ] synthetiser la reponse a : Expliquer la  P=0.65 |#############       | T=0.35\n  [stable  ] [ancrage] La coherence topologique mesur P=0.92 |##################  | T=0.08\n  confiance globale (produit) : 9.1/100",
+    "transferred_from_memory": true,
+    "trace": [
+      "objectif decompose en 4 sous-taches",
+      "tension critique sur 'verifier la coherence de la reponse' (T=0.723) -> descente topologique",
+      "  descente niv.1 : ancrage sur fait verifie"
+    ]
+  }
+}
