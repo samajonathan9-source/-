@@ -1,39 +1,76 @@
-# RATISS-skynet
+# RATISS-Skynet
 
-**POC — Couplage Loi de Cohérence Topologique (LCT) × LLM léger (Qwen2-0.5B)**
+**HYBRID MIND — la fusion de la Loi de Cohérence Topologique (LCT) et d'un LLM léger.**
 
-> *Rendre le fine-tuning ultra-léger via une architecture guidée par la topologie.*
+> *Pas une compétition. Une symbiose : le LLM parle, la topologie le stabilise, le cristal régénère.*
 
-Projet ouvert par **Jonathan Evina** (ORCID 0009-0000-4092-5313) avec son CTO technique (OpenHands/agents). Propriété intellectuelle : **JOHNKING0 & Jonathan Evina**.
+[![Modèle](https://img.shields.io/badge/LLM-SmolLM2--135M-4f9cff)](#)
+[![Langues](https://img.shields.io/badge/langues-FR%20%2F%20EN-00b894)](#)
+[![Licence](https://img.shields.io/badge/licence-propri%C3%A9taire-d97706)](LICENSE)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0000--4092--5313-a6ce39)](https://orcid.org/0009-0000-4092-5313)
 
-**Règle de la maison** : *jamais figé, toujours itérer — la transdisciplinarité prime sur la spécialisation. La preuve par le fonctionnement est la plus concrète.*
+Projet de **Jonathan Evina** (RATIS Labs, 🇨🇲) avec son CTO technique (OpenHands).
+Propriété intellectuelle : **JOHNKING0 & Jonathan Evina**.
 
----
-
-## 🧭 Pourquoi
-
-La Loi LCT a été validée sur des milieux physiques — cristaux ferroélectriques (KTN:Li, Nature 2026), protéines, QPU IBM. Question : peut-elle **guider l'apprentissage d'un LLM** ? Un LLM statistique travaille avec le connu ; nous, on crée. Ce POC teste notre loi sur un quatrième milieu : **les activations d'un transformer**.
-
-Objectif : **preuve par le fonctionnement** — pas une publication. Un contraste topologique interprétable + un LoRA ciblé qui bat le LoRA uniforme à budget égal ou réduit.
-
-
+**Règles de la maison** : *jamais figé, toujours itérer — la transdisciplinarité d'abord — la preuve par le fonctionnement — on n'est pas là pour se lamenter quand ça échoue.*
 
 ---
 
-## 🏗️ Architecture du POC
+![Architecture HYBRID MIND](docs/images/hybrid_mind_architecture.svg)
 
-```
-Qwen2-0.5B (safetensors)
-   └─ hooks PyTorch → activations par couche/tête
-        └─ graphe de corrélations entre neurones (Vietoris-Rips GF(2))
-             └─ score LCT par couche : P_sig + edge − 0,1×entropie
-                  └─ H1 : LoRA ciblé (rang élevé sur zones critiques, faible sur zones stables)
-                       └─ benchmark : perplexité + robustesse vs LoRA uniforme
-```
+---
 
-**Réutilisation** : `ratiss/topo/science_core.py` (AEON ODV fusionné — rips_persistence, P_sig, LCT) + modules LLM de RATIS-Net (tokenizers, rankers, preuves SHA-256.. — le cerveau RATISS pilote le projet, pas de réinvention.
+## 🧠 L'architecture unifiée : HYBRID MIND
 
+Une **seule** architecture, intégrée dans ce repo (`skynet/hybrid_mind.py`).
+Cinq capacités fusionnées :
 
+| Capacité | Rôle | Principe |
+|---|---|---|
+| 🧭 **COMPRENDRE** | Concepts + faits vérifiés bilingues | Anti-hallucination (RATIS-Net) |
+| 🗣️ **PARLER** | Le LLM génère la fluidité | SmolLM2-135M-Instruct |
+| 💗 **RESSENTIR** | Valence / arousal émotionnelle | Emocontext adapté |
+| 🔏 **PROUVER** | Empreinte SHA-256 du sous-graphe actif | Audit reproductible |
+| 💎 **RÉGÉNÉRER** | Repliement cristallin si motif brisé | **KTN:Li** |
+
+**La clef : la génération guidée par LCT** (`draft_guided`). Le LLM propose N candidats ;
+la topologie — **P_sig**, la persistance homologique du graphe de corrélations —
+**sélectionne** le plus cohérent. La loi est figée : `R = P_sig`, `ΔW = η·φ·P_sig·C`.
+
+---
+
+## 🔬 Preuve par le fonctionnement
+
+Test : `scripts/test_transform_fast.py` — LLM brut vs HYBRID MIND, FR + EN.
+
+| Question | LLM brut | HYBRID MIND | Verdict |
+|---|---|---|---|
+| *What is a black hole?* (EN) | cohérence 65 | **cohérence 97.5** | ⬆ transformé |
+| *Qu'est-ce qu'un trou noir ?* (FR) | boucle pure (« un trou noir, il est un trou noir… ») | **cohérence 36 → 117, boucle CASSÉE** | ⬆ transformé |
+| *Raconte une histoire de dragon.* (FR) | boucle (« livre de dragon… ») | **unicité 0.42 → 0.85, boucle CASSÉE** | ⬆ transformé |
+
+**3/3 cas** : la sélection topologique **casse les boucles de répétition** —
+le défaut n°1 d'un petit LLM de 135M paramètres — et **augmente la cohérence**.
+
+> Note d'honnêteté : un modèle de 135M paramètres ne peut répondre que sur ce
+> qu'il a vu. La fusion ne lui donne pas des connaissances — elle **stabilise
+> et sélectionne** sa parole. C'est ça, la transformation.
+
+---
+
+## 📜 Le chemin parcouru (tout est documenté, même les échecs)
+
+| Phase | Question | Résultat | Verdict |
+|---|---|---|---|
+| **0** | Le pipeline synthétique tourne ? | Reproductible, preuve SHA-256 | ✅ |
+| **1** | Capturer les vraies activations du LLM | 30 couches × 576 neurones, hooks PyTorch | ✅ |
+| **2** | La LCT voit-elle une structure dans le LLM ? | Contraste inter-couches **ratio 26.7×**, Kruskal-Wallis **p = 9.7e-21** | ✅ **signal réel** |
+| **3/4** | H1 : LoRA guidé par LCT bat-il LoRA uniforme ? | Uniforme 46.2 ± 4.3 vs ciblé 52.5 ± 5.3 (5 seeds), **p = 0.047** | ❌ **échec documenté** |
+| **5** | La **fusion** transforme-t-elle le LLM ? | Boucles cassées, cohérence ↑, **3/3 cas** | ✅ |
+
+**La leçon de H1** : P_sig mesure la *structure*, pas l'*utilité pour l'apprentissage*.
+Un échec rigoureux (multi-seeds, t-test appairé) vaut plus qu'une victoire bruitée.
+Détail complet : [`artifacts/RAPPORT_H1.md`](artifacts/RAPPORT_H1.md).
 
 ---
 
@@ -41,48 +78,51 @@ Qwen2-0.5B (safetensors)
 
 ```
 ratiss_skynet/
-├── ratiss/
-│   ├── topo/science_core.py      # AEON ODV fusionné (P_sig, LCT, Vietoris-Rips)
-│   └── llm/                      # briques RATIS-Net (tokenizers, rankers, proofs)
 ├── skynet/
-│   ├── activations.py            # hooks PyTorch + capture
-│   ├── topology.py               # graphe de corrélations + score LCT par couche
-│   ├── lora_guided.py          # H1 — LoRA ciblé par score LCT
-│   └── benchmark.py             # perplexité + robustesse (catastrophic forgetting, adversarial)
+│   ├── hybrid_mind.py          # ⭐ l'architecture unifiée (5 capacités)
+│   ├── activations.py          # hooks PyTorch + capture
+│   └── topo_score.py           # score LCT par couche
+├── ratiss/
+│   └── topo/science_core.py    # P_sig, LCT, Vietoris-Rips (AEON ODV)
 ├── scripts/
-│   ├── phase0_setup.sh          # env + modèle
-│   ├── diagnose_lct.py          # POC diagnostic — contraste LCT sur activations
-│   └── run_h1.py               # H1 — LoRA ciblé vs uniforme
-└── tests/
-    └── test_topology.py        # tests du pipeline topologique
+│   ├── diagnose_lct_smollm.py  # Phase 2 — diagnostic LCT (gudhi, ~1 min)
+│   ├── run_h1_lora.py          # Phase 3 — H1 LoRA ciblé vs uniforme
+│   ├── run_h1_robust.py        # Phase 4 — benchmark multi-seeds
+│   ├── demo_hybrid.py          # démo HYBRID MIND (FR/EN)
+│   └── test_transform_fast.py  # ⭐ preuve de transformation (3/3)
+├── artifacts/                  # rapports JSON + preuves SHA-256
+└── docs/images/                # schéma d'architecture
 ```
+
+Le modèle (`models/SmolLM2-135M-Instruct/`, Git LFS) vit **dans ce repo** —
+pas de téléchargement externe.
 
 ---
 
-## 🚀 Démarrer (Phase 0)
+## 🚀 Démarrer
 
 ```bash
-bash scripts/phase0_setup.sh          # installe deps + modèle (ou snapshot_download)
-python scripts/diagnose_lct.py --synth # POC immédiat sur activation simulée (sans GPU)
-python scripts/diagnose_lct.py         # avec le vrai Qwen2-0.5B (si torch + modèle dispo)
+git clone https://github.com/samajonathan9-source/ratiss-Skynet.git
+cd ratiss-Skynet
+git lfs pull        # poids du modèle (257 Mo)
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install transformers peft scipy numpy gudhi
+
+cd ratiss_skynet
+python scripts/demo_hybrid.py            # HYBRID MIND répond FR/EN
+python scripts/test_transform_fast.py    # la preuve de transformation
+python scripts/diagnose_lct_smollm.py    # le diagnostic topologique
 ```
 
 ---
 
-## 🎯 Critères de succès (maison, par le fonctionnement)
+## 🧭 La suite (on itère, toujours)
 
-1. **Phase  ာ1** : le score LCT montre un **contraste** entre couches (pas plat) — test statistique(p < 0.05 sur la variance inter-couches)
-2. **H1** : le **LoRA ciblé** égale ou dépasse le **LoRA uniforme** avec **≥20% de paramètres en moins**.
-3. Chaque résultat est accompagné d'une **preuve SHA-256** du sous-graphe(s) qui a déclenché le contraste.
-
-
-
----
-
-## Limites honnêtes (documentées au fur et à měre
-
-- Le lien topologie physique ↔ dynamique d'un réseau de neurones n'est **pas encore démontré** — c'est exactement ce que ce POC teste.
+- Enrichir les **knowledge packs** (domaines sourcés, bilingue)
+- **KTN:Li** : régénération cristalline multi-échelle (pas juste re-prompt)
+- **Émotions** : faire varier le style de génération selon la valence
+- **Boucle fermée** : la cohérence topologique comme signal de confiance affiché
 
 ---
 
-*© 2026 JOHNKING0 & Jonathan Evina*. Projet privé. La loi LCT est FIGÉE (`R = P_sig`, `ΔW = η·φ·P_sig·C`). Ne la change jamais.
+*© 2026 JOHNKING0 & Jonathan Evina.* La loi LCT est figée. Le reste, jamais.
