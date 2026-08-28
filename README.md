@@ -16,7 +16,7 @@ Propriété intellectuelle : **JOHNKING0 & Jonathan Evina**.
 
 ---
 
-![Architecture HYBRID MIND](ratiss_skynet/docs/images/hybrid_mind_architecture.svg)
+![Architecture HYBRID MIND](ratiss_skynet/docs/images/hybrid_mind_architecture.png)
 
 ---
 
