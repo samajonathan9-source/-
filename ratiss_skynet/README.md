@@ -1,12 +1,14 @@
-# RATISS-Skynet
+# RATIS — Modèle de Compréhension Topologique (MCT)
 
-**HYBRID MIND — la fusion de la Loi de Cohérence Topologique (LCT) et d'un LLM léger.**
+**RATIS n'est pas un LLM. C'est le premier MCT : un Modèle de Compréhension Topologique.**
 
-> *Pas une compétition. Une symbiose : le LLM parle, la topologie le stabilise, le cristal régénère.*
+> *Un LLM prédit le mot le plus probable. RATIS mesure la cohérence structurelle de sa propre réponse — et se replie au lieu d'halluciner.*
+> **📖 [Lire le document fondateur : pourquoi MCT ≠ LLM](docs/MCT.md)**
 
-[![Modèle](https://img.shields.io/badge/LLM-SmolLM2--135M-4f9cff)](#)
+[![Nature](https://img.shields.io/badge/nature-MCT%20(pas%20un%20LLM)-3fb950)](docs/MCT.md)
+[![Loi](https://img.shields.io/badge/loi-LCT%20%3A%20R%20%3D%20P__sig-4f9cff)](#)
+[![Identité](https://img.shields.io/badge/identit%C3%A9-scell%C3%A9e%20SHA--256-d97706)](skynet/identity.py)
 [![Langues](https://img.shields.io/badge/langues-FR%20%2F%20EN-00b894)](#)
-[![Licence](https://img.shields.io/badge/licence-propri%C3%A9taire-d97706)](LICENSE)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0000--4092--5313-a6ce39)](https://orcid.org/0009-0000-4092-5313)
 
 Projet de **Jonathan Evina** (RATIS Labs, 🇨🇲) avec son CTO technique (OpenHands).
@@ -17,6 +19,8 @@ Propriété intellectuelle : **JOHNKING0 & Jonathan Evina**.
 ---
 
 ![Architecture HYBRID MIND](docs/images/hybrid_mind_architecture.png)
+
+![LLM vs MCT](docs/images/mct_vs_llm.png)
 
 ---
 
