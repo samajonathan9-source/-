@@ -26,6 +26,9 @@ from skynet.thermo_emotions import EmotionEngine
 from skynet.memory import HybridMemory
 from skynet.reasoning import check_facts, detect_contradiction, need_clarification, refuse_unknown
 from skynet.safety import IntentionGuard
+from skynet.identity import (verify_integrity, identity_seal, who_am_i,
+                             system_prompt as identity_system_prompt,
+                             short_identity)
 
 # ---------------------------------------------------------------------------
 # Knowledge packs (faits verifies, bilingue) — anti-hallucination.
@@ -143,6 +146,19 @@ class HybridMind:
             os.path.abspath(__file__))), "artifacts", "hybrid_memory.jsonl")
         self.memory = HybridMemory(mem_path)
         self.guard = IntentionGuard(memory=self.memory.store)
+        # integrite de l'identite : RATIS verifie qu'il n'a pas ete altere
+        self._identity_ok = verify_integrity()
+        if not self._identity_ok:
+            raise RuntimeError("Identite RATIS corrompue — sceau SHA-256 invalide.")
+
+    def who_am_i(self):
+        """Auto-connaissance MCT : RATIS sait ce qu'il est."""
+        return who_am_i()
+
+    def identity(self):
+        """Retourne l'identite scellee + preuve d'integrite."""
+        return {"seal": identity_seal(), "integrity": self._identity_ok,
+                "short": short_identity(), "declaration": who_am_i()}
 
     # ---------------- PARLER : le LLM ----------------
     def _ensure_weights(self):
@@ -260,14 +276,14 @@ class HybridMind:
     def draft(self, query, facts, language="en", max_new_tokens=60):
         import torch
         self._load_llm()
-        # Format chat SmolLM2-Instruct : ancrage dans le message systeme.
+        # Ancrage dans le message systeme : identite MCT (RATIS), pas un LLM.
         facts_str = " ".join(facts[:2]) if facts else ""
         if facts_str:
-            sys_msg = (f"Tu es un assistant honnete. Reponds UNIQUEMENT a "
+            sys_msg = (f"{identity_system_prompt()} Reponds UNIQUEMENT a "
                        f"partir de ce fait verifie, sans rien inventer. "
                        f"Fait: {facts_str}")
         else:
-            sys_msg = ("Tu es un assistant honnete. Si tu ne sais pas, "
+            sys_msg = (f"{identity_system_prompt()} Si tu ne sais pas, "
                        "dis-le clairement au lieu d'inventer.")
         messages = [
             {"role": "system", "content": sys_msg},
