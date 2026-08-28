@@ -1,0 +1,122 @@
+[
+  {
+    "query": "Qu'est-ce qu'un trou noir ?",
+    "sentence": "Il y a une réponse claire et honnete : Un trou noir est une region de l'espace-temps ou la gravite est si forte que rien, pas meme la lumi",
+    "language": "fr",
+    "concepts": [
+      "trou",
+      "noir"
+    ],
+    "facts": [
+      "Un trou noir est une region de l'espace-temps ou la gravite est si forte que rien, pas meme la lumiere, ne peut s'echapper au-dela de l'horizon des evenements."
+    ],
+    "emotion": {
+      "valence": 0.0,
+      "arousal": 0.0,
+      "label": "neutre"
+    },
+    "coherence": 79.2133,
+    "regenerated": false,
+    "proof": {
+      "digest": "6292446c32c051db5c2061be622494a6b67bd4c71ad7802b6f06765b8db0736a",
+      "n_concepts": 2,
+      "n_facts": 1
+    }
+  },
+  {
+    "query": "Explique la coherence topologique.",
+    "sentence": "La coherence topologique mesure la persistance structurelle d'un système via l'homologie de son graphe de correlations.\n\nLa coherence topologique mesure la persistance structurelle d'un",
+    "language": "fr",
+    "concepts": [
+      "explique",
+      "coherence",
+      "topologique"
+    ],
+    "facts": [
+      "La coherence topologique mesure la persistance structurelle d'un systeme via l'homologie de son graphe de correlations."
+    ],
+    "emotion": {
+      "valence": 0.0,
+      "arousal": 0.0,
+      "label": "neutre"
+    },
+    "coherence": 60.5727,
+    "regenerated": false,
+    "proof": {
+      "digest": "fcffbfa8a4e2aa8cf20686230c2f5e1ed341e359f953d66474b8cd42fe7fc9b1",
+      "n_concepts": 3,
+      "n_facts": 1
+    }
+  },
+  {
+    "query": "What is a black hole?",
+    "sentence": "Il est une region de l'espace-temps ou la gravite est si forte que rien ne peut s'echapper au-dela de l'horizon des evenements.\n\nLa question",
+    "language": "fr",
+    "concepts": [
+      "black",
+      "hole"
+    ],
+    "facts": [
+      "Un trou noir est une region de l'espace-temps ou la gravite est si forte que rien ne peut s'echapper au-dela de l'horizon des evenements."
+    ],
+    "emotion": {
+      "valence": 0.0,
+      "arousal": 0.0,
+      "label": "neutre"
+    },
+    "coherence": 78.9629,
+    "regenerated": false,
+    "proof": {
+      "digest": "570da011288084d475ae42d95accdb5b9dff5fd9b412273a6d50f42bbdfdb88c",
+      "n_concepts": 2,
+      "n_facts": 1
+    }
+  },
+  {
+    "query": "What is persistent homology?",
+    "sentence": "P.S. I hope this helps!\n\nA:\n\nThe key to understanding persistent homology is to understand the concept of homology groups.\n\nA homology group is a group of integers that is is",
+    "language": "en",
+    "concepts": [
+      "persistent",
+      "homology"
+    ],
+    "facts": [],
+    "emotion": {
+      "valence": 0.0,
+      "arousal": 0.0,
+      "label": "neutre"
+    },
+    "coherence": 41.2679,
+    "regenerated": false,
+    "proof": {
+      "digest": "f4845a96c7b77a6051dd743d7e3c502cff9464766ee385043992d6748a2f5acc",
+      "n_concepts": 2,
+      "n_facts": 0
+    }
+  },
+  {
+    "query": "Raconte-moi une histoire sur un dragon.",
+    "sentence": "Pourquoi, je vais répondre à ce que vous avez déjà déjà vous aimez.\n\nPourquoi, je vais répond",
+    "language": "fr",
+    "concepts": [
+      "raconte",
+      "moi",
+      "histoire",
+      "sur",
+      "dragon"
+    ],
+    "facts": [],
+    "emotion": {
+      "valence": 0.0,
+      "arousal": 0.0,
+      "label": "neutre"
+    },
+    "coherence": 58.2758,
+    "regenerated": false,
+    "proof": {
+      "digest": "151fd99f1686f3217ab48777fbbb5ddcbcf7d17c2f693ba63888ae5493095e2f",
+      "n_concepts": 5,
+      "n_facts": 0
+    }
+  }
+]

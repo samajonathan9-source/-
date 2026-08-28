@@ -1,0 +1,47 @@
+[
+  {
+    "query": "What is a black hole?",
+    "lang": "en",
+    "brut": {
+      "text": "A black hole is a region in space where the gravitational pull is so strong that nothing, including light, can escape. It is formed when a massive star collapses in on itself, causing a massive amount.",
+      "coherence": 65.2,
+      "unicite": 0.833
+    },
+    "hybride": {
+      "text": "A black hole is a region in spacetime where the gravitational pull is so strong that nothing, including light, can escape. It is formed when a massive star collapses in on itself, causing a huge explosion.",
+      "coherence": 97.48,
+      "unicite": 0.861
+    },
+    "transforme": true
+  },
+  {
+    "query": "Qu'est-ce qu'un trou noir ?",
+    "lang": "fr",
+    "brut": {
+      "text": "Un trou noir est un trou noir, il est un trou noir, il est un trou noir, il est un trou noir, il est un trou noir, il est.",
+      "coherence": 36.3,
+      "unicite": 0.276
+    },
+    "hybride": {
+      "text": "Cela ne serait pas la nuit ou la gravite. Cela serait une region de l'espace, tout ce que l'on veut étaîner. Un.",
+      "coherence": 116.59,
+      "unicite": 0.864
+    },
+    "transforme": true
+  },
+  {
+    "query": "Raconte une histoire de dragon.",
+    "lang": "fr",
+    "brut": {
+      "text": "La histoire de dragon est un livre de dragon. Il est un livre de dragon, qui est une histoire de dragon, qui est une histoire de dragon, qui est une hist.",
+      "coherence": 40.06,
+      "unicite": 0.419
+    },
+    "hybride": {
+      "text": "I'm glad you found the history of dragon in your story interesting, and I'm happy to continue the conversation. The dragon has many stories, each one full of its own magic and significance. Let.",
+      "coherence": 71.68,
+      "unicite": 0.853
+    },
+    "transforme": true
+  }
+]
