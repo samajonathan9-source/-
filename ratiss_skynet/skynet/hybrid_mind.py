@@ -21,6 +21,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import numpy as np
 
+from skynet.confidence import TopologicalConfidence
+from skynet.thermo_emotions import EmotionEngine
+
 # ---------------------------------------------------------------------------
 # Knowledge packs (faits verifies, bilingue) — anti-hallucination.
 # Version integree legere (extensible). Chaque fait est sourcable.
@@ -82,12 +85,31 @@ class HybridMind:
         self.threshold = coherence_threshold
         self._llm = None
         self._tok = None
+        self.confidence = TopologicalConfidence()
+        self.emotions = EmotionEngine()
 
     # ---------------- PARLER : le LLM ----------------
+    def _ensure_weights(self):
+        """Si model.safetensors est un pointeur LFS, telecharge les vrais poids."""
+        st_path = os.path.join(self.model_dir, "model.safetensors")
+        if not os.path.exists(st_path):
+            return
+        with open(st_path, "rb") as f:
+            head = f.read(50)
+        if head.startswith(b"version https://git-lfs"):
+            url = ("https://media.githubusercontent.com/media/"
+                   "samajonathan9-source/ratiss-Skynet/main/"
+                   "models/SmolLM2-135M-Instruct/model.safetensors")
+            import urllib.request
+            print("  [poids LFS] telechargement des vrais poids (257 Mo)...")
+            urllib.request.urlretrieve(url, st_path)
+            print("  [poids LFS] OK")
+
     def _load_llm(self):
         if self._llm is None:
             import torch
             from transformers import AutoModelForCausalLM, AutoTokenizer
+            self._ensure_weights()
             self._tok = AutoTokenizer.from_pretrained(self.model_dir)
             self._llm = AutoModelForCausalLM.from_pretrained(
                 self.model_dir, dtype=torch.float32, attn_implementation="eager"
@@ -303,19 +325,34 @@ class HybridMind:
 
     # ---------------- pipeline unifie ----------------
     def respond(self, query, language=None, guided=True):
+        # 0. RESSENTIR : la requete perturbe le corps thermodynamique
+        emo_step = self.emotions.step(query)
+        modulation = emo_step["modulation"]
+
+        # 1. COMPRENDRE
         u = self.understand(query, language)
         lang = u["language"]
         facts = u["facts"]
+
+        # 2. PARLER : generation guidee LCT (modulee par l'emotion)
         if guided:
             draft, score = self.draft_guided(query, facts, lang)
         else:
             draft = self.draft(query, facts, lang)
             score = self.coherence(draft)
+
+        # 3. REGENERER : KTN:Li si coherence faible (seuil module par tension)
         regenerated = False
-        if score < self.threshold and facts:
+        ktn_threshold = modulation["ktn_threshold"]
+        if score < ktn_threshold and facts:
             draft, score = self.regenerate(query, facts, lang)
             regenerated = True
-        emo = self.feel(query + " " + draft)
+
+        # 4. BOUCLE FERMEE : score de confiance topologique 0-100%
+        conf_score, conf_detail = self.confidence.score(draft, score, facts)
+        conf_verdict = self.confidence.verdict(conf_score)
+
+        # 5. PROUVER
         proof = self.prove(u["concepts"], facts, draft)
         return {
             "query": query,
@@ -323,8 +360,13 @@ class HybridMind:
             "language": lang,
             "concepts": u["concepts"],
             "facts": facts,
-            "emotion": emo,
+            "emotion": emo_step["emotion"],
+            "emotion_triggers": emo_step["triggers"],
+            "modulation": modulation,
             "coherence": round(score, 4),
+            "confidence_score": conf_score,
+            "confidence_detail": conf_detail,
+            "confidence_verdict": conf_verdict,
             "regenerated": regenerated,
             "proof": proof,
         }

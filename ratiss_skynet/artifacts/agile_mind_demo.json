@@ -1,0 +1,87 @@
+[
+  {
+    "query": "J'ai peur : c'est quoi la coherence topologique ?",
+    "sentence": "Le coherence topologique est une compréhension de la structure mécanique que cela me plaît à travers dans le dossier de son graphe de correlation. Cette compréhension est l'une.",
+    "language": "fr",
+    "concepts": [
+      "peur",
+      "coherence",
+      "topologique"
+    ],
+    "facts": [
+      "La coherence topologique mesure la persistance structurelle d'un systeme via l'homologie de son graphe de correlations."
+    ],
+    "emotion": {
+      "label": "peur/colere",
+      "valence": -1.0,
+      "arousal": 1.0,
+      "heart_rate": 95.0,
+      "tension": 0.8
+    },
+    "emotion_triggers": [
+      "peur"
+    ],
+    "modulation": {
+      "temperature": 0.82,
+      "ktn_threshold": 0.18,
+      "tone": "neutre"
+    },
+    "coherence": 120.8954,
+    "confidence_score": 95.7,
+    "confidence_detail": {
+      "psig": 120.9,
+      "psig_norm": 1.0,
+      "uniqueness": 0.857,
+      "fact_alignment": 1.0
+    },
+    "confidence_verdict": "HAUTE CONFIANCE",
+    "regenerated": false,
+    "proof": {
+      "digest": "f94b6e8c18baf1655084479c9b5bb7e4f46cf33792c40c33646e6470dc42a97f",
+      "n_concepts": 3,
+      "n_facts": 1
+    },
+    "ktn_collapsed": false
+  },
+  {
+    "query": "What is a black hole?",
+    "sentence": "A black hole is a region in space where the gravitational pull is so strong that nothing, including light, can escape. It's created when a massive star collapses in on itself, causing a massive amount of matter to be compressed into an incredibly.",
+    "language": "fr",
+    "concepts": [
+      "black",
+      "hole"
+    ],
+    "facts": [
+      "Un trou noir est une region de l'espace-temps ou la gravite est si forte que rien ne peut s'echapper au-dela de l'horizon des evenements."
+    ],
+    "emotion": {
+      "label": "peur/colere",
+      "valence": -0.99,
+      "arousal": 1.0,
+      "heart_rate": 92.5,
+      "tension": 0.75
+    },
+    "emotion_triggers": [],
+    "modulation": {
+      "temperature": 0.81,
+      "ktn_threshold": 0.188,
+      "tone": "neutre"
+    },
+    "coherence": 106.9439,
+    "confidence_score": 66.5,
+    "confidence_detail": {
+      "psig": 106.94,
+      "psig_norm": 1.0,
+      "uniqueness": 0.884,
+      "fact_alignment": 0.0
+    },
+    "confidence_verdict": "CONFIANCE MOYENNE",
+    "regenerated": false,
+    "proof": {
+      "digest": "3a9cd8ae6b5e1d32b39ce541a86ebf3bec67d9d0a65bb917dca076c54bd35997",
+      "n_concepts": 2,
+      "n_facts": 1
+    },
+    "ktn_collapsed": false
+  }
+]
