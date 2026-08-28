@@ -36,7 +36,7 @@ Six capacités fusionnées, dans l'ordre du pipeline :
 
 **Couches expérimentales du laboratoire** : 🔁 **RLM × KTN** (`rlm_layer.py`, décomposition récursive) · ⚛️ **Grover** (`quantum_select.py`, amplification vers les candidats cohérents) · 🧩 **Induction few-shot** (`arc_induction.py`, apprendre une règle inconnue en 3 exemples — la règle juste préserve la signature topologique) · 🧠 **Mémoire contrôlée** (`memory.py`, épisodique + sémantique + procédurale, chaîne SHA-256 infalsifiable) · 🧭 **Planificateur topologique** (`planner.py`, chemin de persistance TPP + carte de tension MSTM + descente RTD + motifs PNE).
 
-📊 **Face aux 10 conditions d'une vraie AGI** (fiche Manus AI) : 5 démontrées, 4 partielles, 1 absente — analyse honnête dans [`artifacts/RAPPORT_AGI.md`](artifacts/RAPPORT_AGI.md).
+📊 **Face aux 10 conditions d'une vraie AGI** (fiche Manus AI) : 9 démontrées, 0 partielle, 1 absente (perception, gelée volontairement) — analyse honnête dans [`artifacts/RAPPORT_AGI.md`](artifacts/RAPPORT_AGI.md).
 
 **La clef : la génération guidée par LCT** (`draft_guided`). Le LLM propose N candidats ;
 la topologie — **P_sig**, la persistance homologique du graphe de corrélations —

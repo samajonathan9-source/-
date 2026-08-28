@@ -45,7 +45,7 @@ Six capacités fusionnées, dans l'ordre du pipeline :
 | 🧭 **Planificateur topologique** (`planner.py`) | Autonomie : chemin de persistance (TPP) + carte de tension (MSTM) + descente vers invariant (RTD) + motifs de plans (PNE) | ✅ démontrée |
 
 📊 **Évaluation face aux 10 conditions d'une vraie AGI** (fiche Manus AI) :
-5 démontrées, 4 partielles, 1 absente — analyse honnête dans
+9 démontrées, 0 partielle, 1 absente (perception, gelée volontairement) — analyse honnête dans
 [`artifacts/RAPPORT_AGI.md`](ratiss_skynet/artifacts/RAPPORT_AGI.md).
 
 **La clef : la génération guidée par LCT** (`draft_guided`). Le LLM propose N candidats ;

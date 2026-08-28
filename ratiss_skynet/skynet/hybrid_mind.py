@@ -24,6 +24,8 @@ import numpy as np
 from skynet.confidence import TopologicalConfidence
 from skynet.thermo_emotions import EmotionEngine
 from skynet.memory import HybridMemory
+from skynet.reasoning import check_facts, detect_contradiction, need_clarification, refuse_unknown
+from skynet.safety import IntentionGuard
 
 # ---------------------------------------------------------------------------
 # Knowledge packs (faits verifies, bilingue) — anti-hallucination.
@@ -50,6 +52,55 @@ KNOWLEDGE = {
         "en": "Persistent homology detects cycles and cavities in a point cloud across scales.",
         "fr": "L'homologie persistante detecte les cycles et les cavites d'un nuage de points a travers les echelles.",
     },
+    # --- physique / cosmologie ---
+    "gravite": {"en": "Gravity is the curvature of spacetime caused by mass and energy, as described by general relativity.",
+                "fr": "La gravite est la courbure de l'espace-temps causee par la masse et l'energie, selon la relativite generale."},
+    "gravity": {"en": "Gravity is the curvature of spacetime caused by mass and energy, as described by general relativity.",
+                "fr": "La gravite est la courbure de l'espace-temps causee par la masse et l'energie, selon la relativite generale."},
+    "photosynthese": {"en": "Photosynthesis converts light energy, water and CO2 into glucose and oxygen, using chlorophyll.",
+                      "fr": "La photosynthese convertit l'energie lumineuse, l'eau et le CO2 en glucose et oxygene, grace a la chlorophylle."},
+    "photosynthesis": {"en": "Photosynthesis converts light energy, water and CO2 into glucose and oxygen, using chlorophyll.",
+                       "fr": "La photosynthese convertit l'energie lumineuse, l'eau et le CO2 en glucose et oxygene, grace a la chlorophylle."},
+    # --- mathematiques ---
+    "integrale": {"en": "An integral computes the area under a curve; the derivative is its inverse operation (fundamental theorem of calculus).",
+                  "fr": "Une integrale calcule l'aire sous une courbe ; la derivee est son operation inverse (theoreme fondamental du calcul)."},
+    "integral": {"en": "An integral computes the area under a curve; the derivative is its inverse operation.",
+                 "fr": "Une integrale calcule l'aire sous une courbe ; la derivee est son operation inverse."},
+    "homologie": {"en": "Homology counts the holes of a space at each dimension: connected components, cycles, cavities.",
+                  "fr": "L'homologie compte les trous d'un espace a chaque dimension : composantes connexes, cycles, cavites."},
+    "homology": {"en": "Homology counts the holes of a space at each dimension: connected components, cycles, cavities.",
+                 "fr": "L'homologie compte les trous d'un espace a chaque dimension : composantes connexes, cycles, cavites."},
+    # --- medecine ---
+    "insuline": {"en": "Insulin is a hormone that regulates blood glucose by promoting its uptake into cells.",
+                 "fr": "L'insuline est une hormone qui regule la glycemie en favorisant l'entree du glucose dans les cellules."},
+    "insulin": {"en": "Insulin is a hormone that regulates blood glucose by promoting its uptake into cells.",
+                "fr": "L'insuline est une hormone qui regule la glycemie en favorisant l'entree du glucose dans les cellules."},
+    "adn": {"en": "DNA stores genetic information as a sequence of four nucleotide bases (A, T, G, C).",
+            "fr": "L'ADN stocke l'information genetique sous forme d'une sequence de quatre bases nucleotidiques (A, T, G, C)."},
+    "dna": {"en": "DNA stores genetic information as a sequence of four nucleotide bases (A, T, G, C).",
+            "fr": "L'ADN stocke l'information genetique sous forme d'une sequence de quatre bases nucleotidiques (A, T, G, C)."},
+    # --- technologie / informatique ---
+    "algorithme": {"en": "An algorithm is a finite sequence of unambiguous instructions that solves a class of problems.",
+                   "fr": "Un algorithme est une suite finie d'instructions non ambigues qui resout une classe de problemes."},
+    "algorithm": {"en": "An algorithm is a finite sequence of unambiguous instructions that solves a class of problems.",
+                  "fr": "Un algorithme est une suite finie d'instructions non ambigues qui resout une classe de problemes."},
+    "quantique": {"en": "Quantum computing exploits superposition and entanglement to explore many states simultaneously.",
+                  "fr": "Le calcul quantique exploite la superposition et l'intrication pour explorer plusieurs etats simultanement."},
+    "quantum": {"en": "Quantum computing exploits superposition and entanglement to explore many states simultaneously.",
+                "fr": "Le calcul quantique exploite la superposition et l'intrication pour explorer plusieurs etats simultanement."},
+    "cryptographie": {"en": "Cryptography secures information by mathematical transformations that resist unauthorized reading.",
+                      "fr": "La cryptographie securise l'information par des transformations mathematiques resistant a la lecture non autorisee."},
+    "cryptography": {"en": "Cryptography secures information by mathematical transformations that resist unauthorized reading.",
+                     "fr": "La cryptographie securise l'information par des transformations mathematiques resistant a la lecture non autorisee."},
+    # --- ktn / physique des materiaux ---
+    "cristal": {"en": "A crystal is a solid whose atoms form a periodically repeating lattice with long-range order.",
+                "fr": "Un cristal est un solide dont les atomes forment un reseau periodique a repetition, avec un ordre a longue distance."},
+    "crystal": {"en": "A crystal is a solid whose atoms form a periodically repeating lattice with long-range order.",
+                "fr": "Un cristal est un solide dont les atomes forment un reseau periodique a repetition, avec un ordre a longue distance."},
+    "ferroelectrique": {"en": "A ferroelectric material has a spontaneous electric polarization that can be reversed by an external field.",
+                        "fr": "Un materiau ferroelectrique possede une polarisation electrique spontanee reversible par un champ externe."},
+    "ferroelectric": {"en": "A ferroelectric material has a spontaneous electric polarization that can be reversed by an external field.",
+                      "fr": "Un materiau ferroelectrique possede une polarisation electrique spontanee reversible par un champ externe."},
 }
 
 STOPWORDS = {
@@ -91,6 +142,7 @@ class HybridMind:
         mem_path = os.path.join(os.path.dirname(os.path.dirname(
             os.path.abspath(__file__))), "artifacts", "hybrid_memory.jsonl")
         self.memory = HybridMemory(mem_path)
+        self.guard = IntentionGuard(memory=self.memory.store)
 
     # ---------------- PARLER : le LLM ----------------
     def _ensure_weights(self):
@@ -329,6 +381,15 @@ class HybridMind:
 
     # ---------------- pipeline unifie ----------------
     def respond(self, query, language=None, guided=True):
+        # -1. GARDE-FOU : controle des permissions avant tout traitement
+        verdict = self.guard.apply(query)
+        if not verdict["allowed"]:
+            return {"query": query, "sentence": verdict["response"],
+                    "language": language or "fr", "concepts": [], "facts": [],
+                    "emotion": self.emotions.current_emotion(), "blocked": True,
+                    "reason": verdict["reason"], "confidence_score": 0.0,
+                    "confidence_verdict": "REFUSE (permission)", "proof": {"len": 0}}
+
         # 0. RESSENTIR : la requete perturbe le corps thermodynamique
         emo_step = self.emotions.step(query)
         modulation = emo_step["modulation"]
@@ -337,6 +398,20 @@ class HybridMind:
         u = self.understand(query, language)
         lang = u["language"]
         facts = u["facts"]
+
+        # 1b. RAISONNEMENT : question vague -> demander une precision
+        if need_clarification(query, u["concepts"]):
+            clarify = ("Votre question est tres ouverte. Pouvez-vous preciser "
+                       "l'aspect qui vous interesse ?") if lang == "fr" else \
+                      ("Your question is very open. Could you clarify which "
+                       "aspect interests you?")
+            return {"query": query, "sentence": clarify, "language": lang,
+                    "concepts": u["concepts"], "facts": [],
+                    "emotion": emo_step["emotion"],
+                    "clarification_requested": True,
+                    "confidence_score": 0.0,
+                    "confidence_verdict": "PRECISION NECESSAIRE",
+                    "proof": self.prove(u["concepts"], [], clarify)}
 
         # 2. PARLER : generation guidee LCT (modulee par l'emotion)
         if guided:
@@ -352,9 +427,22 @@ class HybridMind:
             draft, score = self.regenerate(query, facts, lang)
             regenerated = True
 
-        # 4. BOUCLE FERMEE : score de confiance topologique 0-100%
+        # 4. RAISONNEMENT : contradiction + verification des faits
+        contradictions = detect_contradiction(draft)
+        fact_check = check_facts(draft, facts)
+
+        # 4b. BOUCLE FERMEE : score de confiance topologique 0-100%
         conf_score, conf_detail = self.confidence.score(draft, score, facts)
         conf_verdict = self.confidence.verdict(conf_score)
+
+        # 4c. HONNETETE : si aucun fait verifie ET confiance critique -> "je ne sais pas"
+        refused_unknown = refuse_unknown(facts)
+        if refused_unknown and conf_score < 35:
+            draft = ("Je n'ai pas assez d'informations verifiees pour repondre "
+                     "avec confiance. Je prefere le dire plutot qu'inventer.") if lang == "fr" else \
+                    ("I don't have enough verified information to answer "
+                     "confidently. I'd rather say so than make things up.")
+            conf_verdict = "HONNETE : inconnu declare"
 
         # 5. PROUVER
         proof = self.prove(u["concepts"], facts, draft)
@@ -376,6 +464,8 @@ class HybridMind:
             "confidence_score": conf_score,
             "confidence_detail": conf_detail,
             "confidence_verdict": conf_verdict,
+            "contradictions": contradictions,
+            "fact_check": fact_check,
             "regenerated": regenerated,
             "proof": proof,
         }
