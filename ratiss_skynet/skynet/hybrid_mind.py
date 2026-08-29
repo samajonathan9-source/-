@@ -160,6 +160,50 @@ class HybridMind:
         return {"seal": identity_seal(), "integrity": self._identity_ok,
                 "short": short_identity(), "declaration": who_am_i()}
 
+    # ---------------- conscience de soi ----------------
+    _IDENTITY_TERMS = ("nom", "name", "appelles", "appelle", "appele",
+                       "called", "qui es", "who are", "t appelles",
+                       "ton nom", "your name", "t'appelle")
+    _CREATOR_TERMS = ("qui t'a cree", "qui t a cree", "qui t'a fait",
+                      "createur", "créé", "who made you", "who created you",
+                      "qui a cree ratis", "invente")
+
+    def _is_identity_question(self, query):
+        q = query.lower()
+        return any(t in q for t in self._IDENTITY_TERMS)
+
+    def _is_creator_question(self, query):
+        q = query.lower()
+        return any(t in q for t in self._CREATOR_TERMS)
+
+    def _detect_lang(self, query):
+        en_markers = ("what", "who", "your", "the ", " is ", "are ")
+        return "en" if any(m in query.lower() for m in en_markers) else "fr"
+
+    def _answer_identity(self, query):
+        """Repond aux questions d'identite depuis l'identite scellee.
+
+        Retourne (phrase, langue) ou None si la question ne porte pas sur
+        l'identite. RATIS ne laisse jamais le moteur improviser qui il est.
+        """
+        if self._is_creator_question(query):
+            lang = self._detect_lang(query)
+            if lang == "en":
+                return ("I was created by Jonathan Evina, at RATIS Labs in "
+                        "Cameroon."), "en"
+            return ("J'ai ete cree par Jonathan Evina, aux RATIS Labs, "
+                    "au Cameroun."), "fr"
+        if self._is_identity_question(query):
+            lang = self._detect_lang(query)
+            if lang == "en":
+                return ("My name is RATIS. I am a Topological Understanding "
+                        "Model (MCT): I measure the coherence of what I say, "
+                        "and I say so when I do not know."), "en"
+            return ("Je m'appelle RATIS. Je suis un Modele de Comprehension "
+                    "Topologique (MCT) : je mesure la coherence de ce que je "
+                    "dis, et je le dis quand je ne sais pas."), "fr"
+        return None
+
     # ---------------- PARLER : le LLM ----------------
     def _ensure_weights(self):
         """Si model.safetensors est un pointeur LFS, telecharge les vrais poids."""
@@ -409,6 +453,26 @@ class HybridMind:
         # 0. RESSENTIR : la requete perturbe le corps thermodynamique
         emo_step = self.emotions.step(query)
         modulation = emo_step["modulation"]
+
+        # 0b. CONSCIENCE DE SOI : question sur l'identite -> reponse depuis
+        # l'identite scellee. C'est le seul domaine de certitude absolue :
+        # on ne demande pas au moteur d'improviser qui il est.
+        id_answer = self._answer_identity(query)
+        if id_answer is not None:
+            sentence, lang = id_answer
+            proof = self.prove(["identite", "ratis"], [who_am_i()], sentence)
+            self.memory.remember_episode(query, sentence,
+                                         emotion=emo_step["emotion"]["label"],
+                                         confidence=100.0)
+            return {"query": query, "sentence": sentence, "language": lang,
+                    "concepts": ["identite", "ratis"], "facts": [who_am_i()],
+                    "emotion": emo_step["emotion"],
+                    "emotion_triggers": emo_step["triggers"],
+                    "modulation": modulation,
+                    "coherence": 1.0, "confidence_score": 100.0,
+                    "confidence_verdict": "IDENTITE — certitude scellee",
+                    "contradictions": [], "fact_check": [],
+                    "regenerated": False, "proof": proof}
 
         # 1. COMPRENDRE
         u = self.understand(query, language)
