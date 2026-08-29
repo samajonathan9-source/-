@@ -66,6 +66,42 @@ log = trainer.fit(train_texts, val_texts)
 - `torch` avec CUDA
 - `numpy`
 
+### Format d'entraînement
+
+**SafeTensors** — le moteur RATISS One existant (`models/RATISS-One/model.safetensors`)
+est directement entraînable. Aucune reconstruction de format n'est nécessaire.
+La conversion en GGUF est une étape de déploiement ultérieure, distincte de
+l'entraînement. Voir [`../docs/FORMATS.md`](../docs/FORMATS.md).
+
+---
+
+## 4b. Entraînement sur Google Colab
+
+Le script [`colab_train.py`](colab_train.py) est prêt à lancer dans une cellule
+Colab (GPU). Il effectue un fine-tuning **LoRA** du moteur, avec :
+
+- **montage de Google Drive** pour la sauvegarde persistante des checkpoints ;
+- **reprise automatique** depuis le dernier checkpoint en cas d'interruption ;
+- **porte LCT** : le taux d'apprentissage est modulé par la cohérence
+  topologique courante — si P_sig chute, l'apprentissage ralentit ;
+- **early stop topologique** : arrêt automatique si la cohérence s'effondre
+  (protection contre l'oubli catastrophique) ;
+- **validation post-entraînement** : l'identité MCT est revérifiée.
+
+```python
+# Cellule Colab
+!git clone https://github.com/samajonathan9-source/ratiss-Skynet.git
+%cd ratiss-Skynet
+!git lfs pull
+!pip install -q torch transformers peft numpy scipy
+!python ratiss_skynet/training/colab_train.py
+```
+
+Le nombre de paramètres réellement adaptés dépend du rang LoRA
+(`lora_r`, défaut 8) : seules les matrices d'adaptation sont entraînées, ce qui
+représente quelques centaines de milliers de paramètres — largement à la
+portée d'un GPU Colab gratuit.
+
 ---
 
 ## 5. Garde-fou post-entraînement (validation MCT)

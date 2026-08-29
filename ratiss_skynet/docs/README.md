@@ -23,8 +23,12 @@ Bienvenue dans la documentation complète de **RATIS**, le premier
 
 - **[Effets du fine-tuning](FINETUNING_EFFETS.md)** — risques et invariants
   avant tout entraînement
+- **[Formats de poids](FORMATS.md)** — SafeTensors (entraînement) vs GGUF
+  (déploiement local) : quel format pour quoi
 - **[Protocole d'entraînement](../training/PROTOCOLE.md)** — protocole figé
-  pour labo GPU
+  pour labo GPU et Google Colab
+- **[Déploiement](DEPLOIEMENT.md)** — serveur API (FastAPI/Docker), GGUF,
+  navigateur
 - **[Rapport AGI](../artifacts/RAPPORT_AGI.md)** — 9/10 conditions d'une vraie
   AGI démontrées
 
