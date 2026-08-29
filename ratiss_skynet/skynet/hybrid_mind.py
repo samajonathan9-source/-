@@ -136,6 +136,16 @@ class HybridMind:
     """Esprit hybride integre : comprendre, parler, ressentir, prouver, regenerer."""
 
     def __init__(self, model_dir, coherence_threshold=0.15):
+        # chemin absolu : le modele doit se charger quel que soit le cwd
+        if not os.path.isabs(model_dir):
+            candidate = os.path.abspath(model_dir)
+            if not os.path.isdir(candidate):
+                repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                candidate = os.path.join(repo_root, model_dir)
+            if not os.path.isdir(candidate):
+                repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                candidate = os.path.join(os.path.dirname(repo_root), model_dir)
+            model_dir = candidate
         self.model_dir = model_dir
         self.threshold = coherence_threshold
         self._llm = None
@@ -161,6 +171,16 @@ class HybridMind:
                 "short": short_identity(), "declaration": who_am_i()}
 
     # ---------------- conscience de soi ----------------
+    _GREETINGS = {"bonjour": "Bonjour. Je suis RATIS, a votre ecoute.",
+                  "salut": "Salut. Je suis RATIS, a votre ecoute.",
+                  "hello": "Hello. I am RATIS, listening.",
+                  "hi": "Hello. I am RATIS, listening.",
+                  "merci": "Je vous en prie. C'est un plaisir de vous aider.",
+                  "thanks": "You're welcome.",
+                  "thank you": "You're welcome.",
+                  "bonsoir": "Bonsoir. Je suis RATIS, a votre ecoute.",
+                  "ca va": "Je vais bien, merci. Et vous ?",
+                  "comment ca va": "Je vais bien, merci. Et vous ?"}
     _IDENTITY_TERMS = ("nom", "name", "appelles", "appelle", "appele",
                        "called", "qui es", "who are", "t appelles",
                        "ton nom", "your name", "t'appelle")
@@ -186,6 +206,11 @@ class HybridMind:
         Retourne (phrase, langue) ou None si la question ne porte pas sur
         l'identite. RATIS ne laisse jamais le moteur improviser qui il est.
         """
+        # salutations sociales : dignite MCT, pas improvisation statistique
+        q_clean = query.strip().lower().rstrip("!.?")
+        for key, reply in self._GREETINGS.items():
+            if q_clean == key or q_clean.startswith(key + " "):
+                return reply, self._detect_lang(query)
         if self._is_creator_question(query):
             lang = self._detect_lang(query)
             if lang == "en":
@@ -371,20 +396,23 @@ class HybridMind:
             out.append(s)
         return ". ".join(out) + ("." if out else "")
 
-    # ---------------- LCT-GUIDED : generation guidee par la topologie ----------------
-    def draft_guided(self, query, facts, language="en", max_new_tokens=48,
-                     n_candidates=4, temperature=0.9):
-        """Generation guidee par LCT : le LLM propose N candidats par segment,
-        la topologie choisit le plus coherent. C'est la vraie fusion :
-        la parole du LLM est SELECTIONNEE par la coherence topologique."""
+    # ---------------- LCT-GUIDED : SUPER ACTIVATION ----------------
+    def draft_guided(self, query, facts, language="en", max_new_tokens=60,
+                     n_candidates=8, temperature=0.85):
+        """SUPER ACTIVATION : le moteur propose N candidats, la topologie
+        choisit le plus coherent. Exploite TOUT le potentiel du modele :
+        plus de candidats, plus de tokens, repetition_penalty, selection LCT.
+        La parole du moteur est SELECTIONNEE par la coherence topologique."""
         import torch
         self._load_llm()
         facts_str = " ".join(facts[:2]) if facts else ""
         if facts_str:
-            sys_msg = (f"Reponds a partir de ce fait verifie, sans inventer. "
+            sys_msg = (f"Tu es RATIS, un Modele de Comprehension Topologique. "
+                       f"Reponds a partir de ce fait verifie, sans inventer. "
                        f"Fait: {facts_str}")
         else:
-            sys_msg = "Reponds honnetement. Si tu ne sais pas, dis-le."
+            sys_msg = ("Tu es RATIS, un Modele de Comprehension Topologique. "
+                       "Reponds honnetement et clairement. Si tu ne sais pas, dis-le.")
         messages = [{"role": "system", "content": sys_msg},
                     {"role": "user", "content": query}]
         prompt_text = self._tok.apply_chat_template(
@@ -396,18 +424,25 @@ class HybridMind:
             with torch.no_grad():
                 out = self._llm.generate(
                     **ids, max_new_tokens=max_new_tokens, do_sample=True,
-                    temperature=temperature, top_p=0.9,
+                    temperature=temperature, top_p=0.92, top_k=40,
+                    repetition_penalty=1.15,
                     pad_token_id=self._tok.eos_token_id,
                 )
             cand = self._tok.decode(out[0][ids["input_ids"].shape[1]:],
                                     skip_special_tokens=True).strip()
             cand = self._dedup(cand)
-            if not cand or len(cand.split()) < 3:
+            if not cand or len(cand.split()) < 4:
                 continue
             # score = coherence topologique + bonus si contient un fait verifie
             score = self.coherence(cand)
             if facts and any(f.split()[0].lower() in cand.lower() for f in facts):
-                score *= 1.5
+                score *= 1.8
+            # penalite longueur : trop court = surface, trop long = derive
+            n_words = len(cand.split())
+            if n_words < 8:
+                score *= 0.7
+            elif n_words > 40:
+                score *= 0.85
             if score > best_score:
                 best, best_score = cand, score
         return best or self.draft(query, facts, language, max_new_tokens), best_score
